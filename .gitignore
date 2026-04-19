@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# build
+dist/
+.astro/
+
+# environment
+.env
+.env.*
+
+# OS
+.DS_Store
+
+# vercel
+.vercel
+
+# content (copied from filosofia repo at build time)
+public/content/

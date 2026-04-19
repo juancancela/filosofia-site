@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { clases, authors } from '../data/content';
+---
+
+<Layout title="Inicio">
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-stone-900 text-white">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22><circle cx=%2230%22 cy=%2230%22 r=%221%22 fill=%22white%22/></svg>'); background-size: 60px 60px;"></div>
+    </div>
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 py-20 sm:py-28">
+      <p class="text-amber-400 font-medium text-sm tracking-wider uppercase mb-4">CBC / UBA — Introduccion a la Filosofia</p>
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight max-w-3xl">
+        Filosofia
+      </h1>
+      <p class="mt-6 text-lg text-stone-300 max-w-2xl leading-relaxed font-serif italic">
+        "¿Que valdria el encarnizamiento del saber si solo hubiera de asegurar la adquisicion de conocimientos y no, en cierto modo y hasta donde se puede, el extravio del que conoce?"
+      </p>
+      <p class="mt-2 text-stone-400 text-sm">— Michel Foucault, <em>Historia de la sexualidad 2</em></p>
+
+      <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
+        <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+          <p class="text-stone-400 text-xs uppercase tracking-wider">Sede</p>
+          <p class="mt-1 font-medium">Ciudad Universitaria, Pab. 2</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+          <p class="text-stone-400 text-xs uppercase tracking-wider">Aula</p>
+          <p class="mt-1 font-medium">211 (2do piso)</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+          <p class="text-stone-400 text-xs uppercase tracking-wider">Horario</p>
+          <p class="mt-1 font-medium">Ma y Vi, 21–23 hrs</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+          <p class="text-stone-400 text-xs uppercase tracking-wider">Docente</p>
+          <p class="mt-1 font-medium">Alejandro</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clases -->
+  <section id="clases" class="max-w-5xl mx-auto px-4 sm:px-6 py-16">
+    <h2 class="font-serif text-3xl font-bold text-stone-900">Clases</h2>
+    <p class="mt-2 text-stone-500">Material de cada clase: anotaciones y documentos provistos por el docente.</p>
+
+    <div class="mt-8 space-y-4">
+      {clases.map((clase) => (
+        <a href={`/clase/${clase.number}`} class="block group bg-white rounded-xl border border-stone-200 p-6 hover:border-amber-300 hover:shadow-md transition-all">
+          <div class="flex items-start gap-4">
+            <span class="flex-shrink-0 w-10 h-10 rounded-lg bg-amber-100 text-amber-700 font-bold flex items-center justify-center text-sm">
+              {clase.number}
+            </span>
+            <div class="min-w-0">
+              <h3 class="font-semibold text-stone-800 group-hover:text-amber-700 transition-colors">
+                {clase.title}
+              </h3>
+              <p class="mt-1 text-sm text-stone-500 line-clamp-2">{clase.description}</p>
+              <div class="mt-2 flex items-center gap-3 text-xs text-stone-400">
+                <span>{clase.materials.length} material{clase.materials.length !== 1 ? 'es' : ''}</span>
+                {clase.notes && <span class="text-amber-600">+ anotaciones</span>}
+              </div>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Autores -->
+  <section id="autores" class="bg-stone-100 py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="font-serif text-3xl font-bold text-stone-900">Autores</h2>
+      <p class="mt-2 text-stone-500">Textos fuente, resumenes, presentaciones y audios de cada autor trabajado.</p>
+
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {authors.map((author) => (
+          <a href={`/autor/${author.id}`} class="group bg-white rounded-xl border border-stone-200 p-5 hover:border-amber-300 hover:shadow-md transition-all flex gap-4">
+            {author.image ? (
+              <img
+                src={author.image}
+                alt={author.name}
+                class="w-14 h-14 rounded-full object-cover flex-shrink-0 border-2 border-stone-200 group-hover:border-amber-300 transition-colors"
+                loading="lazy"
+              />
+            ) : (
+              <div class="w-14 h-14 rounded-full bg-stone-200 flex items-center justify-center flex-shrink-0 text-stone-500 font-serif text-lg font-bold">
+                {author.name[0]}
+              </div>
+            )}
+            <div class="min-w-0">
+              <h3 class="font-semibold text-stone-800 group-hover:text-amber-700 transition-colors">{author.name}</h3>
+              <p class="text-xs text-stone-400 mt-0.5">{author.years}</p>
+              <p class="text-sm text-stone-500 mt-1 line-clamp-2">{author.bio}</p>
+              <div class="mt-2 flex gap-2 text-xs text-stone-400">
+                <span>{author.works.length} obra{author.works.length !== 1 ? 's' : ''}</span>
+                {author.generated.length > 0 && (
+                  <span class="text-amber-600">+ {author.generated.length} material{author.generated.length !== 1 ? 'es' : ''}</span>
+                )}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

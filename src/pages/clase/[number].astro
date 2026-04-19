@@ -1,0 +1,72 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { clases } from '../../data/content';
+
+export function getStaticPaths() {
+  return clases.map((c) => ({ params: { number: String(c.number) }, props: { clase: c } }));
+}
+
+const { clase } = Astro.props;
+---
+
+<Layout title={`Clase ${clase.number}`}>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+    <!-- Breadcrumb -->
+    <nav class="text-sm text-stone-400 mb-8">
+      <a href="/" class="hover:text-amber-700 transition-colors">Inicio</a>
+      <span class="mx-2">/</span>
+      <a href="/#clases" class="hover:text-amber-700 transition-colors">Clases</a>
+      <span class="mx-2">/</span>
+      <span class="text-stone-600">Clase {clase.number}</span>
+    </nav>
+
+    <!-- Header -->
+    <div class="flex items-start gap-4 mb-10">
+      <span class="flex-shrink-0 w-14 h-14 rounded-xl bg-amber-100 text-amber-700 font-bold flex items-center justify-center text-xl">
+        {clase.number}
+      </span>
+      <div>
+        <h1 class="font-serif text-3xl sm:text-4xl font-bold text-stone-900">{clase.title}</h1>
+        <p class="mt-3 text-stone-600 leading-relaxed max-w-2xl">{clase.description}</p>
+      </div>
+    </div>
+
+    <!-- Materiales del docente -->
+    <section class="mb-12">
+      <h2 class="font-serif text-2xl font-bold text-stone-900 mb-4">Material del docente</h2>
+      <div class="grid gap-3">
+        {clase.materials.map((m) => (
+          <a
+            href={`/visor?file=${encodeURIComponent(m.path)}&title=${encodeURIComponent(m.title)}`}
+            class="group flex items-center gap-3 bg-white rounded-lg border border-stone-200 p-4 hover:border-amber-300 hover:shadow-sm transition-all"
+          >
+            <div class="w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div>
+              <p class="font-medium text-stone-800 group-hover:text-amber-700 transition-colors">{m.title}</p>
+              <p class="text-xs text-stone-400">PDF — Abrir en el visor</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    {clase.notes && (
+      <section>
+        <h2 class="font-serif text-2xl font-bold text-stone-900 mb-4">Anotaciones de clase</h2>
+        <div class="bg-white rounded-lg border border-stone-200 p-6">
+          <p class="text-stone-500 text-sm">Las anotaciones de esta clase estan disponibles como archivo Markdown.</p>
+          <a
+            href={clase.notes}
+            class="mt-3 inline-flex items-center gap-2 text-amber-700 hover:text-amber-800 font-medium text-sm transition-colors"
+            download
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Descargar anotaciones (.md)
+          </a>
+        </div>
+      </section>
+    )}
+  </div>
+</Layout>
