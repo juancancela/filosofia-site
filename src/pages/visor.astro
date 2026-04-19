@@ -1,23 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const file = Astro.url.searchParams.get('file') || '';
-const title = Astro.url.searchParams.get('title') || 'Documento';
 ---
 
-<Layout title={title}>
+<Layout title="Visor">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6">
-    <!-- Breadcrumb -->
     <nav class="text-sm text-stone-400 mb-4">
       <a href="/" class="hover:text-amber-700 transition-colors">Inicio</a>
       <span class="mx-2">/</span>
-      <span class="text-stone-600">{title}</span>
+      <span id="breadcrumb-title" class="text-stone-600">Documento</span>
     </nav>
 
     <div class="flex items-center justify-between mb-4">
-      <h1 class="font-serif text-xl sm:text-2xl font-bold text-stone-900 truncate">{title}</h1>
+      <h1 id="doc-title" class="font-serif text-xl sm:text-2xl font-bold text-stone-900 truncate">Cargando...</h1>
       <a
-        href={file}
+        id="download-link"
+        href="#"
         download
         class="flex-shrink-0 ml-4 inline-flex items-center gap-2 text-sm font-medium text-amber-700 hover:text-amber-800 bg-amber-50 hover:bg-amber-100 px-4 py-2 rounded-lg transition-colors"
       >
@@ -28,10 +25,28 @@ const title = Astro.url.searchParams.get('title') || 'Documento';
 
     <div class="bg-white rounded-xl border border-stone-200 overflow-hidden" style="height: calc(100vh - 200px);">
       <iframe
-        src={file}
+        id="pdf-frame"
+        src="about:blank"
         class="w-full h-full"
-        title={title}
-      />
+        title="Documento"
+      ></iframe>
     </div>
   </div>
+
+  <script is:inline>
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get('file') || '';
+    const title = params.get('title') || 'Documento';
+
+    document.getElementById('doc-title').textContent = title;
+    document.getElementById('breadcrumb-title').textContent = title;
+    document.title = title + ' | Filosofia';
+
+    const frame = document.getElementById('pdf-frame');
+    frame.src = file;
+    frame.title = title;
+
+    const dl = document.getElementById('download-link');
+    dl.href = file;
+  </script>
 </Layout>

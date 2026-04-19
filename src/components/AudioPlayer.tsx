@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback } from 'react';
 
 interface Props {
   src: string;
@@ -9,7 +9,9 @@ export default function AudioPlayer({ src, title }: Props) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [buffered, setBuffered] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   const toggle = () => {
     const audio = audioRef.current;
@@ -22,11 +24,33 @@ export default function AudioPlayer({ src, title }: Props) {
     setIsPlaying(!isPlaying);
   };
 
+  const handleTimeUpdate = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    setProgress(audio.currentTime);
+    if (audio.buffered.length > 0) {
+      setBuffered(audio.buffered.end(audio.buffered.length - 1));
+    }
+  }, []);
+
+  const seek = (e: React.MouseEvent<HTMLDivElement>) => {
+    const audio = audioRef.current;
+    const track = trackRef.current;
+    if (!audio || !track || !duration) return;
+    const rect = track.getBoundingClientRect();
+    const ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    audio.currentTime = ratio * duration;
+    setProgress(audio.currentTime);
+  };
+
   const fmt = (s: number) => {
     const m = Math.floor(s / 60);
     const sec = Math.floor(s % 60);
     return `${m}:${sec.toString().padStart(2, '0')}`;
   };
+
+  const pct = duration ? (progress / duration) * 100 : 0;
+  const bufPct = duration ? (buffered / duration) * 100 : 0;
 
   return (
     <div className="bg-stone-100 rounded-lg p-4 flex items-center gap-4">
@@ -34,7 +58,7 @@ export default function AudioPlayer({ src, title }: Props) {
         ref={audioRef}
         src={src}
         preload="metadata"
-        onTimeUpdate={() => setProgress(audioRef.current?.currentTime || 0)}
+        onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={() => setDuration(audioRef.current?.duration || 0)}
         onEnded={() => setIsPlaying(false)}
       />
@@ -51,20 +75,22 @@ export default function AudioPlayer({ src, title }: Props) {
       </button>
       <div className="flex-1 min-w-0">
         <p className="text-sm font-medium text-stone-700 truncate">{title}</p>
-        <div className="mt-1 flex items-center gap-2">
-          <input
-            type="range"
-            min={0}
-            max={duration || 1}
-            value={progress}
-            onChange={(e) => {
-              const val = Number(e.target.value);
-              if (audioRef.current) audioRef.current.currentTime = val;
-              setProgress(val);
-            }}
-            className="flex-1 h-1 accent-amber-600 cursor-pointer"
-          />
-          <span className="text-xs text-stone-400 tabular-nums w-16 text-right">
+        <div className="mt-2 flex items-center gap-3">
+          <div
+            ref={trackRef}
+            onClick={seek}
+            className="flex-1 h-2 bg-stone-300 rounded-full cursor-pointer relative overflow-hidden"
+          >
+            <div
+              className="absolute inset-y-0 left-0 bg-stone-200 rounded-full"
+              style={{ width: `${bufPct}%` }}
+            />
+            <div
+              className="absolute inset-y-0 left-0 bg-amber-600 rounded-full transition-[width] duration-150"
+              style={{ width: `${pct}%` }}
+            />
+          </div>
+          <span className="text-xs text-stone-400 tabular-nums whitespace-nowrap">
             {fmt(progress)} / {fmt(duration)}
           </span>
         </div>
