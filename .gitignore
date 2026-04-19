@@ -14,6 +14,3 @@ dist/
 
 # vercel
 .vercel
-
-# content (copied from filosofia repo at build time)
-public/content/
