@@ -222,8 +222,10 @@ export const authors: Author[] = [
       { title: 'Los filosofos griegos', path: '/content/autores/william_guthrie/los_filosofos_griegos_guthrie.pdf' },
     ],
     generated: [
-      { title: 'Resumen cap. 4 (PDF)', type: 'pdf', path: '/content/autores/william_guthrie/material_generado/los_filosofos_griegos_guthrie_cap_4_resumen.pdf' },
-      { title: 'Resumen cap. 4 (audio)', type: 'audio', path: '/content/autores/william_guthrie/material_generado/los_filosofos_griegos_guthrie_cap_4_resumen.m4a' },
+      ...Array.from({ length: 8 }, (_, i) => [
+        { title: `Los filosofos griegos — Cap. ${i + 1} (resumen)`, type: 'pdf' as const, path: `/content/autores/william_guthrie/material_generado/los_filosofos_griegos_guthrie_cap_${i + 1}_resumen.pdf` },
+        { title: `Los filosofos griegos — Cap. ${i + 1} (audio)`, type: 'audio' as const, path: `/content/autores/william_guthrie/material_generado/los_filosofos_griegos_guthrie_cap_${i + 1}_resumen.m4a` },
+      ]).flat(),
     ],
   },
 ];
