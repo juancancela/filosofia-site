@@ -216,6 +216,7 @@ export const authors: Author[] = [
     name: 'Guthrie',
     fullName: 'William Keith Chambers Guthrie',
     years: '1906 – 1981',
+    image: 'https://live.staticflickr.com/65535/51022404937_b29cc06f83_c.jpg',
     bio: 'Filologo clasico y helenista escoces. Su obra Los filosofos griegos ofrece una introduccion accesible al desarrollo del pensamiento griego desde los presocraticos hasta Aristoteles.',
     works: [
       { title: 'Los filosofos griegos', path: '/content/autores/william_guthrie/los_filosofos_griegos_guthrie.pdf' },
