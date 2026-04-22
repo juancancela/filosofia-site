@@ -59,6 +59,14 @@ export const clases: Clase[] = [
       { title: 'Guthrie — Los filosofos griegos', type: 'pdf', path: '/content/clases/clase_4/W-K-C-Guthrie-Los-filosofos-griegos.pdf' },
     ],
   },
+  {
+    number: 5,
+    title: 'Relecturas — Claves hermeneuticas para la comprension de textos filosoficos',
+    description: 'Herramientas hermeneuticas para leer y comprender textos filosoficos: contexto historico, intertextualidad, niveles de lectura y estrategias interpretativas.',
+    materials: [
+      { title: 'Relecturas — Claves hermeneuticas', type: 'pdf', path: '/content/clases/clase_5/Relecturas. Claves hermenéuticas para la comprensión de textos filosóficos.pdf' },
+    ],
+  },
 ];
 
 export const authors: Author[] = [
@@ -220,12 +228,27 @@ export const authors: Author[] = [
     bio: 'Filologo clasico y helenista escoces. Su obra Los filosofos griegos ofrece una introduccion accesible al desarrollo del pensamiento griego desde los presocraticos hasta Aristoteles.',
     works: [
       { title: 'Los filosofos griegos', path: '/content/autores/william_guthrie/los_filosofos_griegos_guthrie.pdf' },
+      { title: 'Historia de la filosofia', path: '/content/autores/william_guthrie/historia_de_la_filosofia.pdf' },
     ],
     generated: [
       ...Array.from({ length: 8 }, (_, i) => [
         { title: `Los filosofos griegos — Cap. ${i + 1} (resumen)`, type: 'pdf' as const, path: `/content/autores/william_guthrie/material_generado/los_filosofos_griegos_guthrie_cap_${i + 1}_resumen.pdf` },
         { title: `Los filosofos griegos — Cap. ${i + 1} (audio)`, type: 'audio' as const, path: `/content/autores/william_guthrie/material_generado/los_filosofos_griegos_guthrie_cap_${i + 1}_resumen.m4a` },
       ]).flat(),
+    ],
+  },
+  {
+    id: 'eudeba',
+    name: 'Eudeba',
+    fullName: 'Editorial Universitaria de Buenos Aires',
+    years: '1958 –',
+    bio: 'Editorial de la Universidad de Buenos Aires. Relecturas ofrece claves hermeneuticas para la comprension de textos filosoficos: herramientas de lectura critica, contextualizacion historica y estrategias interpretativas.',
+    works: [
+      { title: 'Relecturas — Claves hermeneuticas', path: '/content/autores/eudeba/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos.pdf' },
+    ],
+    generated: [
+      { title: 'Relecturas — Cap. 1 (resumen)', type: 'pdf', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_1_resumen.pdf' },
+      { title: 'Relecturas — Cap. 1 (audio)', type: 'audio', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_1_resumen.m4a' },
     ],
   },
 ];

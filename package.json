@@ -11,7 +11,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "sync": "bash scripts/prebuild.sh && git add -A && git commit -m 'Sync contenido desde filosofia' && git push"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.3",
