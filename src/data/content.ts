@@ -256,7 +256,7 @@ export const authors: Author[] = [
     name: 'Copleston',
     fullName: 'Frederick Charles Copleston',
     years: '1907 – 1994',
-    image: 'https://upload.wikimedia.org/wikipedia/en/5/5b/Frederick_Copleston.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK2OjLMoZEuDrORM2RgJjZSeG2n9o0wH9xRg&s',
     bio: 'Sacerdote jesuita, filosofo e historiador de la filosofia britanico. Su monumental Historia de la filosofia en nueve volumenes es una de las obras de referencia mas completas sobre el desarrollo del pensamiento occidental, desde los presocraticos hasta el existencialismo.',
     works: [
       ...Array.from({ length: 9 }, (_, i) => ({
