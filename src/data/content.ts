@@ -67,6 +67,14 @@ export const clases: Clase[] = [
       { title: 'Relecturas — Claves hermeneuticas', type: 'pdf', path: '/content/clases/clase_5/Relecturas. Claves hermenéuticas para la comprensión de textos filosóficos.pdf' },
     ],
   },
+  {
+    number: 6,
+    title: 'Descartes — Relecturas hermeneuticas',
+    description: 'Analisis hermeneutico del pensamiento cartesiano: el metodo de la duda, el cogito, las Meditaciones metafisicas y textos seleccionados.',
+    materials: [
+      { title: 'Relecturas — Claves hermeneuticas', type: 'pdf', path: '/content/clases/clase_6/Relecturas. Claves hermenéuticas para la comprensión de textos filosóficos.pdf' },
+    ],
+  },
 ];
 
 export const authors: Author[] = [
@@ -249,6 +257,10 @@ export const authors: Author[] = [
     generated: [
       { title: 'Relecturas — Cap. 1 (resumen)', type: 'pdf', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_1_resumen.pdf' },
       { title: 'Relecturas — Cap. 1 (audio)', type: 'audio', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_1_resumen.m4a' },
+      { title: 'Relecturas — Cap. 4: Descartes (resumen)', type: 'pdf', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_4_descartes_resumen.pdf' },
+      { title: 'Relecturas — Cap. 4: Descartes (audio)', type: 'audio', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_4_descartes_resumen.m4a' },
+      { title: 'Relecturas — Cap. 4: Descartes textos seleccionados (resumen)', type: 'pdf', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_4_descartes_textos_seleccionados_resumen.pdf' },
+      { title: 'Relecturas — Cap. 4: Descartes textos seleccionados (audio)', type: 'audio', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_4_descartes_textos_seleccionados_resumen.m4a' },
     ],
   },
   {
