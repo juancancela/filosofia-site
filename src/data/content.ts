@@ -75,6 +75,22 @@ export const clases: Clase[] = [
       { title: 'Relecturas — Claves hermeneuticas', type: 'pdf', path: '/content/clases/clase_6/Relecturas. Claves hermenéuticas para la comprensión de textos filosóficos.pdf' },
     ],
   },
+  {
+    number: 7,
+    title: 'Descartes — Como invento la mente moderna',
+    description: 'Lectura complementaria sobre el cogito cartesiano: como la metafisica de Descartes establece la separacion entre la cosa pensante (res cogitans) y la cosa extensa (res extensa), y por que esa division todavia configura nuestra concepcion moderna de la mente.',
+    materials: [
+      { title: 'Como Descartes invento la mente moderna', type: 'pdf', path: '/content/clases/clase_7/material_generado/como_descartes_invento_la_menter_moderna.pdf' },
+      { title: 'Resumen en video', type: 'video', path: '/content/clases/clase_7/material_generado/como_descartes_invento_la_menter_moderna_resumen_video.mp4' },
+      { title: 'Resumen en audio', type: 'audio', path: '/content/clases/clase_7/material_generado/como_descartes_invento_la_menter_moderna_resumen_audio.m4a' },
+      { title: 'Descartes', type: 'image', path: '/content/clases/clase_7/material_generado/descartes.png' },
+      { title: 'Portada — Como Descartes invento la mente moderna', type: 'image', path: '/content/clases/clase_7/material_generado/como_descartes_invento_la_menter_moderna.png' },
+      { title: 'Grabacion de la clase — Parte 1', type: 'audio', path: '/content/clases-notas/clase_7/part_1.mp3' },
+      { title: 'Grabacion de la clase — Parte 2', type: 'audio', path: '/content/clases-notas/clase_7/part_2.mp3' },
+      { title: 'Grabacion de la clase — Parte 3', type: 'audio', path: '/content/clases-notas/clase_7/part_3.mp3' },
+      { title: 'Grabacion de la clase — Parte 4', type: 'audio', path: '/content/clases-notas/clase_7/part_4.mp3' },
+    ],
+  },
 ];
 
 export const authors: Author[] = [

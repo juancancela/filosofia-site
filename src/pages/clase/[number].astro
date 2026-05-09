@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import AudioPlayer from '../../components/AudioPlayer';
 import { clases } from '../../data/content';
 
 export function getStaticPaths() {
@@ -7,6 +8,11 @@ export function getStaticPaths() {
 }
 
 const { clase } = Astro.props;
+
+const pdfs = clase.materials.filter((m: any) => m.type === 'pdf');
+const videos = clase.materials.filter((m: any) => m.type === 'video');
+const images = clase.materials.filter((m: any) => m.type === 'image');
+const audios = clase.materials.filter((m: any) => m.type === 'audio');
 ---
 
 <Layout title={`Clase ${clase.number}`}>
@@ -34,22 +40,71 @@ const { clase } = Astro.props;
     <!-- Materiales del docente -->
     <section class="mb-12">
       <h2 class="font-serif text-2xl font-bold text-stone-900 mb-4">Material del docente</h2>
-      <div class="grid gap-3">
-        {clase.materials.map((m) => (
-          <a
-            href={`/visor?file=${encodeURIComponent(m.path)}&title=${encodeURIComponent(m.title)}`}
-            class="group flex items-center gap-3 bg-white rounded-lg border border-stone-200 p-4 hover:border-amber-300 hover:shadow-sm transition-all"
-          >
-            <div class="w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </div>
-            <div>
-              <p class="font-medium text-stone-800 group-hover:text-amber-700 transition-colors">{m.title}</p>
-              <p class="text-xs text-stone-400">PDF — Abrir en el visor</p>
-            </div>
-          </a>
-        ))}
-      </div>
+
+      {pdfs.length > 0 && (
+        <div class="mb-8">
+          {(videos.length > 0 || images.length > 0 || audios.length > 0) && (
+            <h3 class="text-sm font-semibold text-stone-500 uppercase tracking-wider mb-3">Documentos</h3>
+          )}
+          <div class="grid gap-3">
+            {pdfs.map((m: any) => (
+              <a
+                href={`/visor?file=${encodeURIComponent(m.path)}&title=${encodeURIComponent(m.title)}`}
+                class="group flex items-center gap-3 bg-white rounded-lg border border-stone-200 p-4 hover:border-amber-300 hover:shadow-sm transition-all"
+              >
+                <div class="w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div>
+                  <p class="font-medium text-stone-800 group-hover:text-amber-700 transition-colors">{m.title}</p>
+                  <p class="text-xs text-stone-400">PDF — Abrir en el visor</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {videos.length > 0 && (
+        <div class="mb-8">
+          <h3 class="text-sm font-semibold text-stone-500 uppercase tracking-wider mb-3">Video</h3>
+          <div class="grid gap-3">
+            {videos.map((m: any) => (
+              <div class="bg-white rounded-lg border border-stone-200 p-4">
+                <p class="font-medium text-stone-800 mb-3">{m.title}</p>
+                <video controls class="w-full rounded-lg" preload="metadata">
+                  <source src={m.path} type="video/mp4" />
+                </video>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {images.length > 0 && (
+        <div class="mb-8">
+          <h3 class="text-sm font-semibold text-stone-500 uppercase tracking-wider mb-3">Imagenes</h3>
+          <div class="grid gap-3">
+            {images.map((m: any) => (
+              <div class="bg-white rounded-lg border border-stone-200 p-4">
+                <p class="font-medium text-stone-800 mb-3">{m.title}</p>
+                <img src={m.path} alt={m.title} class="w-full rounded-lg" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {audios.length > 0 && (
+        <div class="mb-8">
+          <h3 class="text-sm font-semibold text-stone-500 uppercase tracking-wider mb-3">Audio</h3>
+          <div class="grid gap-3">
+            {audios.map((m: any) => (
+              <AudioPlayer client:visible src={m.path} title={m.title} />
+            ))}
+          </div>
+        </div>
+      )}
     </section>
 
     {clase.notes && (
