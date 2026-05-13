@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { clases, authors } from '../data/content';
+import { parciales } from '../data/parciales';
 ---
 
 <Layout title="Inicio">
@@ -37,6 +38,52 @@ import { clases, authors } from '../data/content';
           <p class="mt-1 font-medium">Alejandro</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Parciales -->
+  <section id="parciales" class="relative max-w-5xl mx-auto px-4 sm:px-6 py-16">
+    <div class="flex items-end justify-between mb-2 flex-wrap gap-2">
+      <h2 class="font-serif text-3xl font-bold text-stone-900 flex items-center gap-3">
+        <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-600 to-violet-600 text-white">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="11" x2="15" y2="11"/></svg>
+        </span>
+        Parciales
+      </h2>
+      <span class="text-xs font-medium text-indigo-700 bg-indigo-50 border border-indigo-200 px-2 py-1 rounded">
+        Material y respuestas
+      </span>
+    </div>
+    <p class="mt-2 text-stone-500">Temas, bibliografia, material generado y respuestas elaboradas a partir del contenido del docente.</p>
+
+    <div class="mt-8 grid gap-4">
+      {parciales.map((p) => (
+        <a
+          href={`/parcial/${p.id}`}
+          class="group relative block bg-gradient-to-br from-indigo-900 via-violet-900 to-purple-900 rounded-2xl border border-indigo-200/20 p-6 hover:shadow-xl transition-all overflow-hidden"
+        >
+          <div class="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity" style="background-image: radial-gradient(circle at 20% 50%, rgba(251,191,36,0.4) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255,255,255,0.2) 0%, transparent 50%);"></div>
+          <div class="relative">
+            <p class="text-amber-300 text-xs font-medium uppercase tracking-wider mb-2">{p.subtitle}</p>
+            <h3 class="font-serif text-2xl font-bold text-white group-hover:text-amber-200 transition-colors">{p.title}</h3>
+            <p class="mt-2 text-indigo-100 text-sm leading-relaxed line-clamp-2">{p.description}</p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+              <span class="bg-white/10 backdrop-blur text-white px-2.5 py-1 rounded-full border border-white/10">
+                {p.topics.length} temas
+              </span>
+              <span class="bg-white/10 backdrop-blur text-white px-2.5 py-1 rounded-full border border-white/10">
+                {p.contents.length} textos del docente
+              </span>
+              <span class="bg-white/10 backdrop-blur text-white px-2.5 py-1 rounded-full border border-white/10">
+                {p.generated.length} materiales generados
+              </span>
+              <span class="bg-amber-400/20 text-amber-200 border border-amber-300/30 px-2.5 py-1 rounded-full">
+                Examen + respuestas
+              </span>
+            </div>
+          </div>
+        </a>
+      ))}
     </div>
   </section>
 

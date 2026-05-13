@@ -3,6 +3,8 @@ export interface Material {
   type: 'pdf' | 'audio' | 'video' | 'markdown' | 'image';
   path: string;
   label?: string;
+  source?: 'docente' | 'generado';
+  origin?: string;
 }
 
 export interface Author {
@@ -22,6 +24,46 @@ export interface Clase {
   description: string;
   notes?: string;
   materials: Material[];
+}
+
+export interface ParcialReference {
+  source: 'docente' | 'generado';
+  document: string;
+  pages?: string;
+  path?: string;
+}
+
+export interface ParcialQuestion {
+  number: number;
+  question: string;
+  inScope: boolean;
+  scopeNote?: string;
+  answer: string;
+  references: ParcialReference[];
+}
+
+export interface ParcialTopic {
+  author: string;
+  detail: string;
+}
+
+export interface Parcial {
+  id: string;
+  number: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  topics: ParcialTopic[];
+  contents: Material[];
+  generated: Material[];
+  example: { title: string; path: string };
+  exam: {
+    header: string;
+    date: string;
+    sede: string;
+    instructions: string;
+    questions: ParcialQuestion[];
+  };
 }
 
 export const clases: Clase[] = [

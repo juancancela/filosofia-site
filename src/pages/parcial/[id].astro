@@ -1,0 +1,265 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AudioPlayer from '../../components/AudioPlayer';
+import { parciales } from '../../data/parciales';
+import type { Material, ParcialQuestion, ParcialReference } from '../../data/content';
+
+export function getStaticPaths() {
+  return parciales.map((p) => ({ params: { id: p.id }, props: { parcial: p } }));
+}
+
+const { parcial } = Astro.props;
+
+const docPdfs = parcial.contents.filter((m: Material) => m.type === 'pdf');
+const genPdfs = parcial.generated.filter((m: Material) => m.type === 'pdf' || m.type === 'markdown');
+const genAudios = parcial.generated.filter((m: Material) => m.type === 'audio');
+const genVideos = parcial.generated.filter((m: Material) => m.type === 'video');
+
+function renderAnswer(text: string) {
+  return text.split('\n\n');
+}
+---
+
+<Layout title={parcial.title}>
+  <!-- Hero distinctivo para parciales (gradiente morado/indigo + acento dorado) -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-indigo-900 via-violet-900 to-purple-900 text-white">
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 20% 50%, rgba(251,191,36,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);"></div>
+    </div>
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+      <!-- Breadcrumb -->
+      <nav class="text-sm text-indigo-200 mb-6">
+        <a href="/" class="hover:text-amber-300 transition-colors">Inicio</a>
+        <span class="mx-2">/</span>
+        <a href="/#parciales" class="hover:text-amber-300 transition-colors">Parciales</a>
+        <span class="mx-2">/</span>
+        <span class="text-white/90">{parcial.number}</span>
+      </nav>
+
+      <div class="flex items-start gap-4">
+        <span class="flex-shrink-0 w-14 h-14 rounded-xl bg-amber-400/20 border border-amber-400/40 text-amber-300 font-bold flex items-center justify-center">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="11" x2="15" y2="11"/></svg>
+        </span>
+        <div>
+          <p class="text-amber-300 text-xs font-medium uppercase tracking-wider mb-1">Parcial · {parcial.subtitle}</p>
+          <h1 class="font-serif text-3xl sm:text-4xl font-bold leading-tight">{parcial.title}</h1>
+          <p class="mt-4 text-indigo-100 leading-relaxed max-w-3xl">{parcial.description}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12 space-y-14">
+    <!-- 1. Temas incluidos -->
+    <section>
+      <div class="flex items-center gap-3 mb-6">
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold text-sm">1</span>
+        <h2 class="font-serif text-2xl font-bold text-stone-900">Temas incluidos en el parcial</h2>
+      </div>
+      <p class="text-stone-500 text-sm mb-5">El docente delimito los siguientes textos como objeto de evaluacion.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {parcial.topics.map((t: { author: string; detail: string }) => (
+          <div class="bg-white rounded-xl border border-stone-200 p-4 hover:border-indigo-300 transition-colors">
+            <p class="font-semibold text-stone-800">{t.author}</p>
+            <p class="mt-1 text-sm text-stone-500">{t.detail}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 2. Contenido del docente -->
+    <section>
+      <div class="flex items-center gap-3 mb-6">
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold text-sm">2</span>
+        <h2 class="font-serif text-2xl font-bold text-stone-900">Contenido provisto por el docente</h2>
+      </div>
+      <p class="text-stone-500 text-sm mb-5">Bibliografia obligatoria para preparar este parcial.</p>
+      <div class="grid gap-3">
+        {docPdfs.map((m: Material) => (
+          <a
+            href={`/visor?file=${encodeURIComponent(m.path)}&title=${encodeURIComponent(m.title)}`}
+            class="group flex items-center gap-3 bg-white rounded-lg border border-stone-200 p-4 hover:border-amber-300 hover:shadow-sm transition-all"
+          >
+            <div class="w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div>
+              <p class="font-medium text-stone-800 group-hover:text-amber-700 transition-colors">{m.title}</p>
+              <p class="text-xs text-stone-400">PDF — Abrir en el visor</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- 3. Material generado -->
+    <section>
+      <div class="flex items-center gap-3 mb-6">
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold text-sm">3</span>
+        <h2 class="font-serif text-2xl font-bold text-stone-900">Material generado para el estudio</h2>
+      </div>
+      <p class="text-stone-500 text-sm mb-5">
+        Resumenes, presentaciones, audios y videos producidos a partir del contenido del docente para enriquecer la lectura.
+      </p>
+
+      {genPdfs.length > 0 && (
+        <div class="mb-8">
+          <h3 class="text-sm font-semibold text-stone-500 uppercase tracking-wider mb-3">Documentos</h3>
+          <div class="grid gap-3">
+            {genPdfs.map((m: Material) => (
+              <a
+                href={`/visor?file=${encodeURIComponent(m.path)}&title=${encodeURIComponent(m.title)}`}
+                class="group flex items-start gap-3 bg-white rounded-lg border border-stone-200 p-4 hover:border-amber-300 hover:shadow-sm transition-all"
+              >
+                <div class="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="min-w-0">
+                  <p class="font-medium text-stone-800 group-hover:text-amber-700 transition-colors">{m.title}</p>
+                  {m.origin && <p class="text-xs text-stone-500 mt-1">Generado a partir de: <span class="italic">{m.origin}</span></p>}
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {genAudios.length > 0 && (
+        <div class="mb-8">
+          <h3 class="text-sm font-semibold text-stone-500 uppercase tracking-wider mb-3">Audios</h3>
+          <div class="grid gap-3">
+            {genAudios.map((m: Material) => (
+              <div class="bg-white rounded-lg border border-stone-200 p-3">
+                <AudioPlayer client:visible src={m.path} title={m.title} />
+                {m.origin && <p class="text-xs text-stone-500 mt-2 px-1">Generado a partir de: <span class="italic">{m.origin}</span></p>}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {genVideos.length > 0 && (
+        <div class="mb-8">
+          <h3 class="text-sm font-semibold text-stone-500 uppercase tracking-wider mb-3">Videos</h3>
+          <div class="grid gap-3">
+            {genVideos.map((m: Material) => (
+              <div class="bg-white rounded-lg border border-stone-200 p-4">
+                <p class="font-medium text-stone-800 mb-3">{m.title}</p>
+                <video controls class="w-full rounded-lg" preload="metadata">
+                  <source src={m.path} type="video/mp4" />
+                </video>
+                {m.origin && <p class="text-xs text-stone-500 mt-3">Generado a partir de: <span class="italic">{m.origin}</span></p>}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </section>
+
+    <!-- 4. Modelo de parcial -->
+    <section>
+      <div class="flex items-center gap-3 mb-6">
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold text-sm">4</span>
+        <h2 class="font-serif text-2xl font-bold text-stone-900">Modelo de parcial provisto por el docente</h2>
+      </div>
+      <a
+        href={`/visor?file=${encodeURIComponent(parcial.example.path)}&title=${encodeURIComponent(parcial.example.title)}`}
+        class="group flex items-center gap-3 bg-white rounded-lg border border-stone-200 p-4 hover:border-amber-300 hover:shadow-sm transition-all"
+      >
+        <div class="w-10 h-10 rounded-lg bg-violet-50 text-violet-600 flex items-center justify-center flex-shrink-0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+        </div>
+        <div>
+          <p class="font-medium text-stone-800 group-hover:text-amber-700 transition-colors">{parcial.example.title}</p>
+          <p class="text-xs text-stone-400">PDF — Abrir en el visor</p>
+        </div>
+      </a>
+    </section>
+
+    <!-- 5. Examen + respuestas -->
+    <section>
+      <div class="flex items-center gap-3 mb-2">
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold text-sm">5</span>
+        <h2 class="font-serif text-2xl font-bold text-stone-900">Examen transcripto y respuestas</h2>
+      </div>
+      <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6 text-sm text-amber-900">
+        <p class="font-semibold mb-1">Notas importantes:</p>
+        <ul class="list-disc list-inside space-y-1">
+          <li>Las respuestas se elaboraron <strong>estrictamente</strong> sobre el contenido provisto por el docente (Jaspers + Relecturas) y los materiales generados a partir de el. <strong>No</strong> se utilizan fuentes externas.</li>
+          <li>Las referencias de pagina corresponden a la numeracion del PDF tal como fue provisto.</li>
+          <li>Cada pregunta indica si esta dentro o fuera de los temas listados para este parcial.</li>
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-xl border border-stone-200 p-5 mb-6">
+        <p class="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-2">Encabezado del examen</p>
+        <p class="font-serif text-stone-800">{parcial.exam.header}</p>
+        <p class="text-sm text-stone-500 mt-1">{parcial.exam.sede} · {parcial.exam.date}</p>
+        <p class="text-sm text-stone-600 mt-3 italic">{parcial.exam.instructions}</p>
+      </div>
+
+      <div class="space-y-6">
+        {parcial.exam.questions.map((q: ParcialQuestion) => (
+          <article class={`rounded-xl border bg-white overflow-hidden ${q.inScope ? 'border-stone-200' : 'border-stone-200 border-dashed'}`}>
+            <header class={`px-5 py-4 border-b ${q.inScope ? 'bg-indigo-50/50 border-indigo-100' : 'bg-stone-100 border-stone-200'}`}>
+              <div class="flex items-start gap-3">
+                <span class={`flex-shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-full font-bold text-sm ${q.inScope ? 'bg-indigo-600 text-white' : 'bg-stone-400 text-white'}`}>
+                  {q.number}
+                </span>
+                <div class="min-w-0 flex-1">
+                  <p class={`text-xs font-semibold uppercase tracking-wider mb-1 ${q.inScope ? 'text-indigo-600' : 'text-stone-500'}`}>
+                    {q.inScope ? 'Tema incluido en el parcial' : 'Fuera del programa de este parcial'}
+                  </p>
+                  <p class="font-serif text-stone-800 leading-relaxed">{q.question}</p>
+                </div>
+              </div>
+            </header>
+
+            <div class="px-5 py-5">
+              {q.scopeNote && (
+                <div class="bg-stone-50 border-l-4 border-stone-300 px-4 py-3 mb-4 text-sm text-stone-600 italic">
+                  {q.scopeNote}
+                </div>
+              )}
+
+              <div class="prose prose-stone max-w-none">
+                {renderAnswer(q.answer).map((para: string) => (
+                  para.startsWith('NOTA:') ? (
+                    <p class="text-sm text-stone-500 italic border-l-2 border-stone-300 pl-3">{para}</p>
+                  ) : (
+                    <p class="text-stone-700 leading-relaxed">{para}</p>
+                  )
+                ))}
+              </div>
+
+              {q.references.length > 0 && (
+                <div class="mt-6 pt-5 border-t border-stone-100">
+                  <p class="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-3">Referencias</p>
+                  <ul class="space-y-2">
+                    {q.references.map((ref: ParcialReference) => (
+                      <li class="flex items-start gap-2 text-sm">
+                        <span class={`flex-shrink-0 mt-0.5 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${ref.source === 'docente' ? 'bg-red-50 text-red-700 border border-red-200' : 'bg-amber-50 text-amber-700 border border-amber-200'}`}>
+                          {ref.source === 'docente' ? 'Docente' : 'Generado'}
+                        </span>
+                        <span class="text-stone-700 leading-relaxed">
+                          {ref.path ? (
+                            <a href={`/visor?file=${encodeURIComponent(ref.path)}&title=${encodeURIComponent(ref.document)}`} class="hover:text-amber-700 underline-offset-2 hover:underline transition-colors">
+                              {ref.document}
+                            </a>
+                          ) : (
+                            ref.document
+                          )}
+                          {ref.pages && <span class="text-stone-500"> — pp. {ref.pages}</span>}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>

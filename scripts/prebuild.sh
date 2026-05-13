@@ -16,10 +16,13 @@ if [ ! -d "$FILOSOFIA_REPO/contenido" ]; then
   exit 0
 fi
 
-mkdir -p "$CONTENT_DIR/autores" "$CONTENT_DIR/clases" "$CONTENT_DIR/clases-notas"
+mkdir -p "$CONTENT_DIR/autores" "$CONTENT_DIR/clases" "$CONTENT_DIR/clases-notas" "$CONTENT_DIR/parciales"
 
 echo "Syncing content from $FILOSOFIA_REPO..."
 rsync -av --delete --exclude='.DS_Store' "$FILOSOFIA_REPO/contenido/autores/" "$CONTENT_DIR/autores/"
 rsync -av --delete --exclude='.DS_Store' "$FILOSOFIA_REPO/contenido/clases/" "$CONTENT_DIR/clases/"
 rsync -av --exclude='.DS_Store' "$FILOSOFIA_REPO/clases/" "$CONTENT_DIR/clases-notas/" 2>/dev/null || true
+if [ -d "$FILOSOFIA_REPO/parciales" ]; then
+  rsync -av --delete --exclude='.DS_Store' "$FILOSOFIA_REPO/parciales/" "$CONTENT_DIR/parciales/"
+fi
 echo "Done. $(du -sh "$CONTENT_DIR" | cut -f1) total content."
