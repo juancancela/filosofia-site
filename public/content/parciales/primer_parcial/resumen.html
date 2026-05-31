@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Primer Parcial Filosofía - Resumen gráfico</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.58;
+      margin: 0;
+      color: #222;
+      background: #f4f1ea;
+    }
+    header {
+      background: #1f2933;
+      color: white;
+      padding: 36px 48px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 34px;
+    }
+    header p {
+      max-width: 950px;
+      font-size: 17px;
+      opacity: 0.92;
+    }
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 32px;
+      background: white;
+    }
+    h2 {
+      border-bottom: 3px solid #1f2933;
+      padding-bottom: 8px;
+      margin-top: 48px;
+      color: #1f2933;
+    }
+    h3 {
+      margin-top: 30px;
+      color: #374151;
+    }
+    h4 {
+      margin-top: 22px;
+      color: #111827;
+    }
+    .autor {
+      padding: 24px;
+      margin: 32px 0;
+      border: 1px solid #ddd;
+      border-radius: 18px;
+      background: #fffdf7;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    .clave {
+      background: #eef6ff;
+      border-left: 5px solid #2563eb;
+      padding: 14px 18px;
+      margin: 18px 0;
+      border-radius: 8px;
+    }
+    .alerta {
+      background: #fff7ed;
+      border-left: 5px solid #f97316;
+      padding: 14px 18px;
+      margin: 18px 0;
+      border-radius: 8px;
+    }
+    .cita {
+      font-style: italic;
+      background: #f7f7f7;
+      padding: 14px 18px;
+      border-left: 4px solid #666;
+      margin: 16px 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+    .card {
+      border: 1px solid #ddd;
+      padding: 14px;
+      border-radius: 12px;
+      background: #fafafa;
+    }
+    .card strong {
+      color: #111827;
+    }
+    .diagram {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin: 20px 0;
+      padding: 16px;
+      background: #f9fafb;
+      border-radius: 14px;
+      border: 1px dashed #aaa;
+    }
+    .box {
+      padding: 12px 16px;
+      border-radius: 10px;
+      background: #e5e7eb;
+      font-weight: bold;
+      text-align: center;
+      min-width: 130px;
+    }
+    .box.dark {
+      background: #1f2933;
+      color: white;
+    }
+    .box.blue {
+      background: #dbeafe;
+      color: #1e3a8a;
+    }
+    .box.orange {
+      background: #ffedd5;
+      color: #9a3412;
+    }
+    .box.green {
+      background: #dcfce7;
+      color: #166534;
+    }
+    .arrow {
+      font-size: 24px;
+      font-weight: bold;
+      color: #555;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+      font-size: 15px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      vertical-align: top;
+    }
+    th {
+      background: #1f2933;
+      color: white;
+    }
+    .comparativo td:first-child {
+      font-weight: bold;
+      background: #f3f4f6;
+    }
+    .qa {
+      margin-top: 20px;
+    }
+    .qa details {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      margin: 8px 0;
+      padding: 10px 14px;
+      background: #fcfcfc;
+    }
+    .qa summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: #111827;
+    }
+    .modelo {
+      background: #f0fdf4;
+      border-left: 5px solid #22c55e;
+      padding: 14px 18px;
+      margin: 18px 0;
+      border-radius: 8px;
+    }
+    .mini {
+      font-size: 14px;
+      color: #555;
+    }
+    .tag {
+      display: inline-block;
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 4px 8px;
+      border-radius: 999px;
+      margin: 2px;
+      font-size: 13px;
+    }
+    .footer {
+      margin-top: 50px;
+      padding: 24px;
+      background: #1f2933;
+      color: white;
+      border-radius: 12px;
+    }
+    .indice a {
+      display: inline-block;
+      margin: 5px 8px 5px 0;
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: #e5e7eb;
+      color: #111827;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .prioridad {
+      background: #fee2e2;
+      border: 1px solid #fecaca;
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .prioridad strong {
+      color: #991b1b;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Primer Parcial de Filosofía — Resumen gráfico y guía de estudio</h1>
+  <p>
+    Autores: Karl Jaspers, Platón, Descartes, Hume y Kant.
+    Este archivo está pensado para estudiar de forma visual, entender conceptos clave,
+    relacionar autores y practicar respuestas posibles de parcial.
+  </p>
+</header>
+<main>
+<section class="indice">
+  <h2>Índice rápido</h2>
+  <a href="#mapa">Mapa general</a>
+  <a href="#jaspers">Jaspers</a>
+  <a href="#platon">Platón</a>
+  <a href="#descartes">Descartes</a>
+  <a href="#hume">Hume</a>
+  <a href="#kant">Kant</a>
+  <a href="#comparativo">Cuadro comparativo</a>
+  <a href="#transversales">Preguntas transversales</a>
+  <a href="#glosario">Glosario</a>
+</section>
+<section id="mapa">
+  <h2>Mapa general del recorrido</h2>
+  <div class="diagram">
+    <div class="box dark">Jaspers</div>
+    <div class="arrow">→</div>
+    <div class="box">¿Por qué filosofamos?</div>
+    <div class="arrow">→</div>
+    <div class="box blue">Asombro, duda, límite, comunicación</div>
+  </div>
+  <div class="diagram">
+    <div class="box dark">Platón</div>
+    <div class="arrow">→</div>
+    <div class="box">Mundo sensible</div>
+    <div class="arrow">vs</div>
+    <div class="box blue">Mundo inteligible</div>
+    <div class="arrow">→</div>
+    <div class="box green">Polis justa / alma justa</div>
+  </div>
+  <div class="diagram">
+    <div class="box dark">Descartes</div>
+    <div class="arrow">→</div>
+    <div class="box">Duda metódica</div>
+    <div class="arrow">→</div>
+    <div class="box blue">Cogito</div>
+    <div class="arrow">→</div>
+    <div class="box green">Dios garantiza la verdad</div>
+  </div>
+  <div class="diagram">
+    <div class="box dark">Hume</div>
+    <div class="arrow">→</div>
+    <div class="box">Empirismo</div>
+    <div class="arrow">→</div>
+    <div class="box blue">Impresiones e ideas</div>
+    <div class="arrow">→</div>
+    <div class="box orange">Costumbre, imaginación, escepticismo</div>
+  </div>
+  <div class="diagram">
+    <div class="box dark">Kant</div>
+    <div class="arrow">→</div>
+    <div class="box">Respuesta a Hume</div>
+    <div class="arrow">→</div>
+    <div class="box blue">Sujeto trascendental</div>
+    <div class="arrow">→</div>
+    <div class="box green">Fenómeno / noúmeno</div>
+  </div>
+  <div class="clave">
+    <strong>Idea general del parcial:</strong> el recorrido va desde el sentido mismo de filosofar
+    hasta el problema moderno del conocimiento: cómo conocemos, qué podemos conocer,
+    qué límites tiene la razón y qué lugar ocupan la experiencia, el sujeto, la verdad y la metafísica.
+  </div>
+</section>
+<section id="jaspers" class="autor">
+  <h2>1. Karl Jaspers — ¿Qué es la filosofía? ¿Cuál es su origen?</h2>
+  <h3>Idea central</h3>
+  <p>
+    Para Jaspers, la filosofía no es una ciencia que acumula resultados definitivos.
+    Su esencia no está en poseer la verdad, sino en buscarla. Filosofar es estar “de camino”:
+    cada respuesta abre una nueva pregunta.
+  </p>
+  <div class="cita">
+    “La busca de la verdad, no la posesión de ella, es la esencia de la filosofía.”
+  </div>
+  <h3>Filosofía y ciencia</h3>
+  <table>
+    <tr>
+      <th>Ciencia</th>
+      <th>Filosofía</th>
+    </tr>
+    <tr>
+      <td>Busca resultados universalmente válidos.</td>
+      <td>No tiene resultados definitivos aceptados por todos.</td>
+    </tr>
+    <tr>
+      <td>Progresa acumulativamente.</td>
+      <td>No progresa del mismo modo: no estamos “más adelantados” que Platón en el filosofar mismo.</td>
+    </tr>
+    <tr>
+      <td>Trabaja sobre objetos particulares.</td>
+      <td>Pregunta por la totalidad del ser y por el hombre en cuanto hombre.</td>
+    </tr>
+    <tr>
+      <td>Exige método especializado.</td>
+      <td>Debe ser accesible a todo ser humano.</td>
+    </tr>
+  </table>
+  <h3>Comienzo y origen</h3>
+  <table>
+    <tr>
+      <th>Comienzo</th>
+      <th>Origen</th>
+    </tr>
+    <tr>
+      <td>Es histórico.</td>
+      <td>Es existencial.</td>
+    </tr>
+    <tr>
+      <td>Se refiere a cuándo aparece la filosofía como tradición.</td>
+      <td>Se refiere a la fuente permanente que impulsa a filosofar.</td>
+    </tr>
+    <tr>
+      <td>Puede ubicarse en la historia.</td>
+      <td>Aparece cada vez que el hombre se asombra, duda, se conmueve o busca comunicarse.</td>
+    </tr>
+  </table>
+  <h3>Los orígenes del filosofar</h3>
+  <div class="diagram">
+    <div class="box blue">Asombro</div>
+    <div class="arrow">→</div>
+    <div class="box">Pregunta</div>
+    <div class="arrow">→</div>
+    <div class="box">Conocimiento</div>
+  </div>
+  <div class="diagram">
+    <div class="box blue">Duda</div>
+    <div class="arrow">→</div>
+    <div class="box">Examen crítico</div>
+    <div class="arrow">→</div>
+    <div class="box">Búsqueda de certeza</div>
+  </div>
+  <div class="diagram">
+    <div class="box blue">Situaciones límite</div>
+    <div class="arrow">→</div>
+    <div class="box">Conmoción</div>
+    <div class="arrow">→</div>
+    <div class="box">Pregunta por uno mismo</div>
+  </div>
+  <div class="diagram">
+    <div class="box blue">Comunicación</div>
+    <div class="arrow">→</div>
+    <div class="box">Verdad compartida</div>
+    <div class="arrow">→</div>
+    <div class="box">Filosofía viva</div>
+  </div>
+  <h3>Conceptos clave</h3>
+  <div class="grid">
+    <div class="card"><strong>Asombro:</strong> experiencia de extrañeza ante el mundo. Lo cotidiano deja de ser obvio.</div>
+    <div class="card"><strong>Duda:</strong> cuestionamiento de lo que parecía sabido. Abre el examen crítico.</div>
+    <div class="card"><strong>Situaciones límite:</strong> muerte, sufrimiento, lucha, culpa y azar.</div>
+    <div class="card"><strong>Comunicación:</strong> condición última del filosofar actual. La verdad se busca con otros.</div>
+    <div class="card"><strong>Filosofía:</strong> búsqueda, camino, actividad viva del pensamiento.</div>
+    <div class="card"><strong>Philosophia perennis:</strong> unidad de fondo de la filosofía, aunque existan sistemas diversos y contradictorios.</div>
+  </div>
+  <div class="modelo">
+    <strong>Respuesta modelo breve:</strong>
+    Para Jaspers, la filosofía no se define por poseer respuestas definitivas, sino por buscar la verdad.
+    A diferencia de la ciencia, no produce resultados universalmente aceptados, porque pregunta por la totalidad del ser
+    y compromete la existencia entera del hombre. Su origen no es sólo histórico: nace siempre del asombro, de la duda,
+    de las situaciones límite y, finalmente, de la voluntad de comunicación.
+  </div>
+  <h3>10 posibles preguntas de parcial — Jaspers</h3>
+  <div class="qa">
+    <details><summary>1. ¿Por qué Jaspers dice que la filosofía no tiene resultados como la ciencia?</summary>
+      <p>Porque la ciencia produce conocimientos universalmente válidos sobre objetos particulares, mientras que la filosofía pregunta por la totalidad del ser y por el hombre en cuanto hombre. Su verdad no se posee como un resultado definitivo.</p>
+    </details>
+    <details><summary>2. ¿Qué significa que filosofar es “ir de camino”?</summary>
+      <p>Significa que la filosofía es búsqueda permanente. No se define por respuestas finales, sino por mantener abiertas preguntas esenciales. Toda respuesta filosófica puede convertirse en una nueva pregunta.</p>
+    </details>
+    <details><summary>3. ¿Cuál es la diferencia entre comienzo y origen de la filosofía?</summary>
+      <p>El comienzo es histórico: cuándo aparece la filosofía como tradición. El origen es la fuente existencial que en todo tiempo impulsa a filosofar.</p>
+    </details>
+    <details><summary>4. ¿Por qué el asombro es origen de la filosofía?</summary>
+      <p>Porque al asombrarnos dejamos de tomar el mundo como obvio y empezamos a preguntar qué es, de dónde viene y cuál es su sentido.</p>
+    </details>
+    <details><summary>5. ¿Por qué la duda es origen de la filosofía?</summary>
+      <p>Porque cuestiona lo que parecía seguro y obliga a examinar críticamente el conocimiento para buscar una certeza más firme.</p>
+    </details>
+    <details><summary>6. ¿Qué son las situaciones límite?</summary>
+      <p>Son situaciones que no podemos evitar ni modificar radicalmente: muerte, sufrimiento, lucha, culpa y azar. Nos enfrentan con nuestra finitud.</p>
+    </details>
+    <details><summary>7. ¿Por qué las situaciones límite originan el filosofar?</summary>
+      <p>Porque conmueven al hombre entero. No despiertan sólo curiosidad, sino una pregunta existencial por el sentido de la vida y de uno mismo.</p>
+    </details>
+    <details><summary>8. ¿Qué papel cumple la comunicación en Jaspers?</summary>
+      <p>La comunicación es la condición última del filosofar actual. La verdad filosófica no se impone como dogma; se busca en diálogo con otros.</p>
+    </details>
+    <details><summary>9. ¿Por qué la filosofía debe ser accesible a todo el mundo?</summary>
+      <p>Porque no es un saber técnico reservado a especialistas. Todo hombre, por ser hombre, puede preguntarse por el ser, por sí mismo y por el sentido de la existencia.</p>
+    </details>
+    <details><summary>10. ¿Qué relación hay entre filosofía y salvación?</summary>
+      <p>La religión promete una salvación objetiva; la filosofía no puede dar esa garantía. Pero filosofar es, para Jaspers, una forma de superar el mundo y buscar sentido.</p>
+    </details>
+  </div>
+</section>
+<section id="platon" class="autor">
+  <h2>2. Platón — Entre lo visible y lo pensable</h2>
+  <div class="prioridad">
+    <strong>Muy probable en parcial:</strong> justicia en el Estado y justicia en el individuo.
+  </div>
+  <h3>Idea central</h3>
+  <p>
+    En el capítulo de <em>Relecturas</em>, Platón aparece como el pensador que separa
+    lo visible y cambiante de lo pensable y estable. La realidad sensible cambia,
+    nace y muere; por eso no puede ser el fundamento último del conocimiento.
+    Para pensar algo como “lo que es”, hay que remitirlo a la Idea.
+  </p>
+  <div class="diagram">
+    <div class="box orange">Mundo sensible</div>
+    <div class="arrow">→</div>
+    <div class="box">Cambio, devenir, apariencia</div>
+    <div class="arrow">↓</div>
+    <div class="box">Problema: no hay estabilidad</div>
+  </div>
+  <div class="diagram">
+    <div class="box blue">Mundo inteligible</div>
+    <div class="arrow">→</div>
+    <div class="box">Ideas, esencias, modelos</div>
+    <div class="arrow">↓</div>
+    <div class="box">Fundamento del conocimiento</div>
+  </div>
+  <h3>Polis, pensamiento y transformación</h3>
+  <p>
+    La filosofía platónica tiene una vocación política. Pensar no es describir pasivamente
+    la ciudad existente, sino juzgarla desde un modelo superior. La polis justa no es simplemente
+    la ciudad real: es el modelo ideal desde el cual la ciudad real puede ser criticada y transformada.
+  </p>
+  <div class="clave">
+    <strong>Fórmula clave:</strong> pensar la polis para transformarla; pensar al hombre para mejorarlo.
+  </div>
+  <h3>La justicia en el Estado y en el individuo</h3>
+  <p>
+    En <em>La República</em>, Platón construye una analogía entre la ciudad y el alma.
+    La justicia consiste en que cada parte cumpla su función propia y no invada la función de las demás.
+    Por eso la justicia no es sólo una virtud moral individual: es un orden armónico.
+  </p>
+  <h4>Justicia en el Estado</h4>
+  <table>
+    <tr>
+      <th>Clase social</th>
+      <th>Función propia</th>
+      <th>Virtud principal</th>
+    </tr>
+    <tr>
+      <td>Gobernantes / filósofos</td>
+      <td>Dirigir la ciudad según la razón y el conocimiento del Bien.</td>
+      <td>Sabiduría.</td>
+    </tr>
+    <tr>
+      <td>Guardianes / guerreros</td>
+      <td>Defender la ciudad y sostener las decisiones racionales.</td>
+      <td>Valentía.</td>
+    </tr>
+    <tr>
+      <td>Productores</td>
+      <td>Producir bienes y satisfacer necesidades materiales.</td>
+      <td>Moderación, en la medida en que aceptan el orden común.</td>
+    </tr>
+  </table>
+  <div class="modelo">
+    <strong>Justicia en el Estado:</strong>
+    la ciudad es justa cuando cada clase cumple su tarea propia:
+    los gobernantes gobiernan, los guardianes defienden y los productores producen.
+    Hay injusticia cuando una parte pretende ocupar el lugar que no le corresponde.
+  </div>
+  <h4>Justicia en el individuo</h4>
+  <table>
+    <tr>
+      <th>Parte del alma</th>
+      <th>Deseo dominante</th>
+      <th>Función justa</th>
+    </tr>
+    <tr>
+      <td>Racional</td>
+      <td>Conocer la verdad y deliberar.</td>
+      <td>Debe gobernar el alma.</td>
+    </tr>
+    <tr>
+      <td>Irascible / anímica</td>
+      <td>Honor, coraje, orgullo, indignación.</td>
+      <td>Debe auxiliar a la razón.</td>
+    </tr>
+    <tr>
+      <td>Concupiscible / apetitiva</td>
+      <td>Placeres, deseos corporales, riqueza.</td>
+      <td>Debe obedecer a la razón.</td>
+    </tr>
+  </table>
+  <div class="modelo">
+    <strong>Justicia en el individuo:</strong>
+    el alma es justa cuando la razón gobierna, la parte irascible la ayuda
+    y los deseos obedecen. La injusticia aparece cuando los deseos o las pasiones dominan a la razón.
+  </div>
+  <div class="diagram">
+    <div class="box dark">Ciudad justa</div>
+    <div class="arrow">=</div>
+    <div class="box">cada clase hace lo suyo</div>
+    <div class="arrow">↔</div>
+    <div class="box dark">Alma justa</div>
+    <div class="arrow">=</div>
+    <div class="box">cada parte cumple su función</div>
+  </div>
+  <h3>Idea, participación y problema de lo sensible</h3>
+  <p>
+    La pregunta central es cómo algo sensible puede ser pensado como algo estable.
+    Un río cambia todo el tiempo, pero seguimos llamándolo “río”.
+    Esa estabilidad no viene de las aguas sensibles, sino de la Idea o esencia de río.
+  </p>
+  <div class="diagram">
+    <div class="box">Cosas sensibles</div>
+    <div class="arrow">participan de</div>
+    <div class="box blue">Ideas</div>
+    <div class="arrow">→</div>
+    <div class="box green">Conocimiento</div>
+  </div>
+  <div class="alerta">
+    <strong>Problema difícil:</strong> la participación —methexis—.
+    ¿Cómo participan las cosas sensibles de las Ideas trascendentes?
+    Platón plantea el problema, pero no ofrece una solución completamente cerrada.
+  </div>
+  <h3>Arte, poesía y política</h3>
+  <p>
+    Para Platón, el arte mimético es políticamente peligroso porque educa las pasiones.
+    La poesía no se basa en un saber racional, sino en inspiración o entusiasmo.
+    Por eso puede afectar el alma colectiva y desordenar la polis.
+  </p>
+  <div class="diagram">
+    <div class="box blue">Idea</div>
+    <div class="arrow">→</div>
+    <div class="box">Cosa sensible</div>
+    <div class="arrow">→</div>
+    <div class="box orange">Arte mimético</div>
+    <div class="arrow">=</div>
+    <div class="box">Copia de copia</div>
+  </div>
+  <table>
+    <tr>
+      <th>Concepto</th>
+      <th>Sentido</th>
+    </tr>
+    <tr>
+      <td>Idea</td>
+      <td>Modelo inteligible, estable y verdadero.</td>
+    </tr>
+    <tr>
+      <td>Cosa sensible</td>
+      <td>Copia imperfecta de la Idea.</td>
+    </tr>
+    <tr>
+      <td>Arte mimético</td>
+      <td>Copia de la cosa sensible; por eso está más alejado de la verdad.</td>
+    </tr>
+    <tr>
+      <td>Copia</td>
+      <td>Conserva cierta semejanza con el modelo.</td>
+    </tr>
+    <tr>
+      <td>Simulacro</td>
+      <td>Engaña, confunde y no remite claramente a una verdad superior.</td>
+    </tr>
+  </table>
+  <h3>10 posibles preguntas de parcial — Platón</h3>
+  <div class="qa">
+    <details open><summary>1. En la República de Platón, ¿cómo se define la justicia tanto en el Estado como en el individuo?</summary>
+      <p>En el Estado, la justicia consiste en que cada clase cumpla su función: los gobernantes gobiernan, los guardianes defienden y los productores producen. En el individuo, la justicia consiste en que cada parte del alma cumpla su función: la razón gobierna, la parte irascible auxilia a la razón y la parte concupiscible obedece. En ambos casos, la justicia es armonía y orden funcional.</p>
+    </details>
+    <details><summary>2. ¿Qué significa “polis” en el contexto platónico?</summary>
+      <p>No es simplemente “ciudad” en sentido moderno. Es el espacio político, ético y comunitario donde se organiza la vida humana. Pensar la polis es pensar cómo debe vivir el hombre.</p>
+    </details>
+    <details><summary>3. ¿Por qué el proyecto de Platón es político?</summary>
+      <p>Porque no busca sólo conocer la verdad, sino transformar la ciudad y el alma humana según un modelo racional de justicia.</p>
+    </details>
+    <details><summary>4. ¿Qué función cumple la polis ideal?</summary>
+      <p>Funciona como modelo trascendente desde el cual se juzga críticamente la ciudad existente y se orienta su perfeccionamiento.</p>
+    </details>
+    <details><summary>5. ¿Por qué el mundo sensible no basta para el conocimiento?</summary>
+      <p>Porque todo lo sensible cambia. Si algo cambia constantemente, no puede ofrecer por sí mismo una esencia estable para el pensamiento.</p>
+    </details>
+    <details><summary>6. ¿Qué es una Idea en Platón?</summary>
+      <p>Es la esencia inteligible y estable de algo. Permite pensar una cosa como lo que es, más allá de sus cambios sensibles.</p>
+    </details>
+    <details><summary>7. ¿Qué es la participación?</summary>
+      <p>Es la relación por la cual las cosas sensibles son lo que son en la medida en que participan de una Idea. Es uno de los problemas más difíciles del platonismo.</p>
+    </details>
+    <details><summary>8. ¿Por qué Platón critica la poesía?</summary>
+      <p>Porque la poesía no nace de un saber racional, sino de inspiración, y puede educar las emociones de modo contrario a la razón y la justicia.</p>
+    </details>
+    <details><summary>9. ¿Por qué el arte es “copia de copia”?</summary>
+      <p>Porque la cosa sensible ya es copia de la Idea, y el arte copia esa cosa sensible. Por eso queda más lejos de la realidad verdadera.</p>
+    </details>
+    <details><summary>10. ¿Cuál es la diferencia entre copia y simulacro?</summary>
+      <p>La copia mantiene una relación reconocible con el modelo. El simulacro engaña, confunde y produce apariencia sin remitir claramente a la verdad.</p>
+    </details>
+  </div>
+</section>
+<section id="descartes" class="autor">
+  <h2>3. Descartes — El sueño de la razón</h2>
+  <div class="prioridad">
+    <strong>Muy probable en parcial:</strong> cómo se descubre el cogito y cuál es su importancia en el sistema cartesiano.
+  </div>
+  <h3>Idea central</h3>
+  <p>
+    Descartes busca una certeza absolutamente firme desde la cual reconstruir el edificio del saber.
+    Para eso utiliza la duda metódica: duda de todo aquello que pueda ser puesto en cuestión.
+    Pero descubre una verdad indudable: mientras duda, piensa; y si piensa, existe.
+  </p>
+  <div class="diagram">
+    <div class="box orange">Duda metódica</div>
+    <div class="arrow">→</div>
+    <div class="box">Todo puede ser falso</div>
+    <div class="arrow">→</div>
+    <div class="box blue">Pero estoy pensando</div>
+    <div class="arrow">→</div>
+    <div class="box green">Cogito</div>
+  </div>
+  <div class="cita">
+    “Pienso, luego soy.”
+  </div>
+  <h3>El método cartesiano</h3>
+  <table>
+    <tr>
+      <th>Regla</th>
+      <th>Explicación</th>
+    </tr>
+    <tr>
+      <td>Evidencia</td>
+      <td>Aceptar sólo aquello que se presente de modo claro y distinto.</td>
+    </tr>
+    <tr>
+      <td>Análisis</td>
+      <td>Dividir cada problema en partes simples.</td>
+    </tr>
+    <tr>
+      <td>Síntesis</td>
+      <td>Ir de lo simple a lo complejo.</td>
+    </tr>
+    <tr>
+      <td>Enumeración</td>
+      <td>Revisar cuidadosamente para no omitir nada.</td>
+    </tr>
+  </table>
+  <h3>La duda metódica</h3>
+  <p>
+    La duda cartesiana no es una duda escéptica definitiva. Es un método para encontrar
+    una verdad que resista toda posibilidad de error.
+  </p>
+  <div class="diagram">
+    <div class="box">Los sentidos engañan</div>
+    <div class="arrow">→</div>
+    <div class="box">Argumento del sueño</div>
+    <div class="arrow">→</div>
+    <div class="box">Hipótesis del genio maligno</div>
+    <div class="arrow">→</div>
+    <div class="box green">Cogito indudable</div>
+  </div>
+  <h3>Cómo se descubre el cogito</h3>
+  <p>
+    Descartes duda de los sentidos, porque alguna vez engañan; duda del mundo externo,
+    porque podría estar soñando; e incluso duda de las verdades matemáticas mediante la hipótesis
+    del genio maligno. Pero hay algo que no puede ser falso: si estoy dudando, estoy pensando.
+    Y si estoy pensando, existo al menos como sujeto que piensa.
+  </p>
+  <div class="modelo">
+    <strong>Respuesta modelo breve:</strong>
+    El cogito se descubre en el proceso de la duda metódica. Descartes pone en duda los sentidos,
+    el mundo externo y hasta las verdades matemáticas. Pero al dudar descubre una certeza imposible de negar:
+    para ser engañado o para dudar, tiene que pensar; y si piensa, existe. La importancia del cogito es que
+    funciona como primera verdad indudable y fundamento del sistema cartesiano.
+  </div>
+  <h3>Cogito y sustancia pensante</h3>
+  <p>
+    El cogito es la primera certeza. Pero Descartes no se queda en “hay pensamiento”:
+    afirma que ese yo que piensa es una cosa que piensa, una <em>res cogitans</em>.
+  </p>
+  <table>
+    <tr>
+      <th>Sustancia</th>
+      <th>Atributo principal</th>
+      <th>Sentido</th>
+    </tr>
+    <tr>
+      <td>Res cogitans</td>
+      <td>Pensamiento</td>
+      <td>Yo, alma, sujeto pensante.</td>
+    </tr>
+    <tr>
+      <td>Res extensa</td>
+      <td>Extensión</td>
+      <td>Cuerpo, materia, mundo físico matematizable.</td>
+    </tr>
+  </table>
+  <h3>Dios y la salida del solipsismo</h3>
+  <p>
+    Luego del cogito, Descartes todavía está encerrado en la certeza del yo.
+    Para salir del solipsismo necesita demostrar que Dios existe y que no engaña.
+    Dios garantiza que las ideas claras y distintas son verdaderas.
+  </p>
+  <div class="diagram">
+    <div class="box">Yo finito</div>
+    <div class="arrow">tengo idea de</div>
+    <div class="box blue">Infinito perfecto</div>
+    <div class="arrow">→</div>
+    <div class="box">Esa idea requiere causa proporcionada</div>
+    <div class="arrow">→</div>
+    <div class="box green">Dios existe</div>
+  </div>
+  <h3>El círculo cartesiano</h3>
+  <div class="alerta">
+    <strong>Problema:</strong> parece que Descartes prueba a Dios usando ideas claras y distintas,
+    pero luego dice que las ideas claras y distintas son verdaderas porque Dios las garantiza.
+  </div>
+  <div class="diagram">
+    <div class="box">Ideas claras y distintas</div>
+    <div class="arrow">prueban</div>
+    <div class="box">Dios</div>
+    <div class="arrow">garantiza</div>
+    <div class="box">Ideas claras y distintas</div>
+  </div>
+  <h3>10 posibles preguntas de parcial — Descartes</h3>
+  <div class="qa">
+    <details open><summary>1. Explique cómo se descubre y cuál es la importancia del cogito en el sistema de Descartes.</summary>
+      <p>El cogito se descubre mediante la duda metódica. Descartes duda de los sentidos, del mundo externo y hasta de las verdades matemáticas. Pero no puede dudar de que está dudando, y dudar es pensar. Por eso concluye que, si piensa, existe. Su importancia es que el cogito es la primera certeza indudable y el fundamento desde el cual Descartes intenta reconstruir el conocimiento.</p>
+    </details>
+    <details><summary>2. ¿Cuál es el objetivo filosófico de Descartes?</summary>
+      <p>Encontrar una certeza indudable que sirva como fundamento para reconstruir el conocimiento.</p>
+    </details>
+    <details><summary>3. ¿Qué es la duda metódica?</summary>
+      <p>Es un procedimiento racional que consiste en poner en duda todo lo que pueda ser dudado para hallar una verdad absolutamente firme.</p>
+    </details>
+    <details><summary>4. ¿Por qué la duda cartesiana no es escepticismo?</summary>
+      <p>Porque no busca negar la verdad, sino encontrar una verdad imposible de negar.</p>
+    </details>
+    <details><summary>5. ¿Qué son las ideas claras y distintas?</summary>
+      <p>Son ideas que se presentan al espíritu con evidencia, sin confusión y sin oscuridad. Para Descartes, constituyen el criterio de verdad, garantizado por Dios.</p>
+    </details>
+    <details><summary>6. ¿Qué es la res cogitans?</summary>
+      <p>Es la sustancia pensante: el yo cuya esencia consiste en pensar.</p>
+    </details>
+    <details><summary>7. ¿Qué es la res extensa?</summary>
+      <p>Es la sustancia material, definida por la extensión. Es el mundo físico entendido matemáticamente.</p>
+    </details>
+    <details><summary>8. ¿Por qué Descartes necesita probar la existencia de Dios?</summary>
+      <p>Porque Dios permite salir del encierro del yo y garantiza que las ideas claras y distintas no son engañosas.</p>
+    </details>
+    <details><summary>9. ¿Qué es el círculo cartesiano?</summary>
+      <p>Es la objeción según la cual Descartes parece probar a Dios mediante ideas claras y distintas, pero luego fundamenta la verdad de esas ideas en Dios.</p>
+    </details>
+    <details><summary>10. ¿Qué lugar ocupa Descartes en la filosofía moderna?</summary>
+      <p>Inaugura el giro hacia el sujeto: el conocimiento ya no parte del mundo exterior, sino de la certeza de la conciencia.</p>
+    </details>
+  </div>
+</section>
+<section id="hume" class="autor">
+  <h2>4. Hume — El microscopio de Hume y el recurso a la imaginación</h2>
+  <div class="prioridad">
+    <strong>Muy probable en parcial:</strong> diferencia entre impresiones e ideas y origen de las ideas.
+  </div>
+  <h3>Idea central</h3>
+  <p>
+    Hume lleva el empirismo a una formulación radical: todo conocimiento procede de la experiencia.
+    Para evaluar si una idea es válida, hay que buscar la impresión de la cual deriva.
+    Si no encontramos una impresión correspondiente, esa idea puede ser una palabra vacía.
+  </p>
+  <div class="diagram">
+    <div class="box dark">Experiencia</div>
+    <div class="arrow">→</div>
+    <div class="box blue">Impresiones</div>
+    <div class="arrow">→</div>
+    <div class="box green">Ideas</div>
+    <div class="arrow">→</div>
+    <div class="box orange">Asociación imaginativa</div>
+  </div>
+  <h3>Impresiones e ideas</h3>
+  <table>
+    <tr>
+      <th>Tipo de percepción</th>
+      <th>Características</th>
+      <th>Ejemplo</th>
+    </tr>
+    <tr>
+      <td>Impresión</td>
+      <td>Percepción directa, fuerte y vivaz. Puede ser de sensación o de reflexión.</td>
+      <td>Ver un color, sentir dolor, experimentar deseo, miedo o placer.</td>
+    </tr>
+    <tr>
+      <td>Idea</td>
+      <td>Copia debilitada de una impresión. Es menos intensa y menos vivaz.</td>
+      <td>Recordar ese color, imaginar ese dolor, pensar en un deseo pasado.</td>
+    </tr>
+  </table>
+  <div class="modelo">
+    <strong>Respuesta modelo breve:</strong>
+    Para Hume, impresiones e ideas son percepciones de la mente. Las impresiones son percepciones directas,
+    más fuertes y vivaces; las ideas son copias debilitadas de esas impresiones. Las ideas se originan en la experiencia:
+    primero recibimos impresiones, y luego la memoria y la imaginación conservan, reproducen, combinan o asocian esas impresiones en forma de ideas.
+  </div>
+  <h3>El “microscopio” de Hume</h3>
+  <p>
+    El método humeano consiste en analizar una idea compleja, dividirla en ideas simples
+    y buscar la impresión correspondiente a cada una.
+  </p>
+  <div class="diagram">
+    <div class="box">Idea compleja</div>
+    <div class="arrow">→</div>
+    <div class="box">Dividir</div>
+    <div class="arrow">→</div>
+    <div class="box">Ideas simples</div>
+    <div class="arrow">→</div>
+    <div class="box blue">Buscar impresión</div>
+  </div>
+  <h3>La imaginación</h3>
+  <p>
+    La imaginación no es una facultad menor. Es la que une percepciones discontinuas,
+    rellena intervalos, combina ideas y produce ficciones útiles para la vida.
+  </p>
+  <table>
+    <tr>
+      <th>Ley de asociación</th>
+      <th>Ejemplo</th>
+    </tr>
+    <tr>
+      <td>Semejanza</td>
+      <td>Una foto nos lleva a pensar en la persona retratada.</td>
+    </tr>
+    <tr>
+      <td>Contigüidad</td>
+      <td>Una habitación nos lleva a pensar en otra cercana.</td>
+    </tr>
+    <tr>
+      <td>Causa y efecto</td>
+      <td>El humo nos lleva a pensar en fuego.</td>
+    </tr>
+  </table>
+  <h3>Crítica de la identidad</h3>
+  <p>
+    Para Hume, no tenemos una impresión directa de la identidad permanente de las cosas.
+    Vemos percepciones parecidas y constantes, y la imaginación fabrica la creencia
+    en una existencia continua.
+  </p>
+  <div class="diagram">
+    <div class="box">Percepción 1</div>
+    <div class="arrow">+</div>
+    <div class="box">Percepción 2 semejante</div>
+    <div class="arrow">+</div>
+    <div class="box">Memoria</div>
+    <div class="arrow">→</div>
+    <div class="box orange">Ficción de identidad</div>
+  </div>
+  <h3>Crítica del yo</h3>
+  <p>
+    No hay impresión directa de un yo permanente. Lo que llamamos “yo” es una sucesión
+    de percepciones. La mente es como un teatro donde aparecen y desaparecen percepciones.
+  </p>
+  <div class="diagram">
+    <div class="box">Sensación</div>
+    <div class="arrow">→</div>
+    <div class="box">Recuerdo</div>
+    <div class="arrow">→</div>
+    <div class="box">Deseo</div>
+    <div class="arrow">→</div>
+    <div class="box">Idea</div>
+    <div class="arrow">→</div>
+    <div class="box orange">“Yo” como ficción</div>
+  </div>
+  <h3>Crítica de la causalidad</h3>
+  <p>
+    Nunca percibimos una conexión necesaria entre causa y efecto.
+    Sólo observamos que un hecho sucede regularmente después de otro.
+    La causalidad nace de la costumbre.
+  </p>
+  <div class="diagram">
+    <div class="box">A ocurre</div>
+    <div class="arrow">→</div>
+    <div class="box">B ocurre</div>
+    <div class="arrow">→ muchas veces →</div>
+    <div class="box">Costumbre</div>
+    <div class="arrow">→</div>
+    <div class="box orange">Creencia causal</div>
+  </div>
+  <div class="alerta">
+    <strong>Consecuencia:</strong> Hume no dice que dejemos de creer en la causalidad,
+    el yo o el mundo. Dice que esas creencias no tienen fundamento racional absoluto:
+    dependen de la experiencia, la imaginación y la costumbre.
+  </div>
+  <h3>10 posibles preguntas de parcial — Hume</h3>
+  <div class="qa">
+    <details open><summary>1. Según David Hume, ¿cuál es la diferencia fundamental entre impresiones e ideas, y cómo se originan estas últimas?</summary>
+      <p>Las impresiones son percepciones directas, fuertes y vivaces; las ideas son copias debilitadas de esas impresiones. Las ideas se originan a partir de la experiencia: primero recibimos impresiones, y luego la memoria y la imaginación las conservan, reproducen, combinan o asocian.</p>
+    </details>
+    <details><summary>2. ¿Cuál es el principio empirista básico de Hume?</summary>
+      <p>Todo conocimiento procede de la experiencia. Toda idea válida debe poder remitirse a una impresión.</p>
+    </details>
+    <details><summary>3. ¿Qué son las percepciones?</summary>
+      <p>Son todos los contenidos de la conciencia. Se dividen en impresiones e ideas.</p>
+    </details>
+    <details><summary>4. ¿Qué es el “microscopio de Hume”?</summary>
+      <p>Es el método de analizar una idea y buscar la impresión que le corresponde. Si no hay impresión, la idea carece de significado preciso.</p>
+    </details>
+    <details><summary>5. ¿Qué función cumple la imaginación?</summary>
+      <p>Combina, separa y asocia ideas. Además, une percepciones discontinuas y produce ficciones como identidad, sustancia o yo.</p>
+    </details>
+    <details><summary>6. ¿Cuáles son las leyes de asociación de ideas?</summary>
+      <p>Semejanza, contigüidad en tiempo y espacio, y causa-efecto.</p>
+    </details>
+    <details><summary>7. ¿Por qué Hume critica la identidad de las cosas?</summary>
+      <p>Porque no tenemos una impresión de identidad permanente. Sólo percibimos cambios y semejanzas, que la imaginación unifica.</p>
+    </details>
+    <details><summary>8. ¿Qué es el yo para Hume?</summary>
+      <p>No es una sustancia permanente, sino una sucesión de percepciones conectadas por memoria e imaginación.</p>
+    </details>
+    <details><summary>9. ¿Por qué Hume critica la causalidad?</summary>
+      <p>Porque nunca percibimos una conexión necesaria entre causa y efecto; sólo una sucesión constante que genera hábito o costumbre.</p>
+    </details>
+    <details><summary>10. ¿Por qué Hume conduce al escepticismo?</summary>
+      <p>Porque muestra que ideas fundamentales como sustancia, yo y causalidad no tienen fundamento racional absoluto, aunque sean inevitables en la vida práctica.</p>
+    </details>
+  </div>
+</section>
+<section id="kant" class="autor">
+  <h2>5. Kant — El tribunal de la razón</h2>
+  <div class="prioridad">
+    <strong>Muy probable en parcial:</strong> fenómeno/noúmeno y revolución copernicana.
+  </div>
+  <h3>Idea central</h3>
+  <p>
+    Kant intenta resolver el problema que Hume dejó abierto:
+    si todo conocimiento viene de la experiencia, ¿cómo son posibles las leyes universales y necesarias de la ciencia?
+    Su respuesta es la revolución copernicana: no es el sujeto quien debe adaptarse al objeto,
+    sino que el objeto de experiencia aparece bajo las condiciones del sujeto.
+  </p>
+  <div class="diagram">
+    <div class="box dark">Problema de Hume</div>
+    <div class="arrow">→</div>
+    <div class="box">No vemos necesidad causal</div>
+    <div class="arrow">→</div>
+    <div class="box dark">Kant responde</div>
+    <div class="arrow">→</div>
+    <div class="box blue">La causalidad es categoría del sujeto</div>
+  </div>
+  <h3>La revolución copernicana</h3>
+  <p>
+    Kant compara su giro con la revolución de Copérnico. Antes se suponía que el conocimiento
+    debía ajustarse a los objetos. Kant invierte el punto de vista: los objetos de experiencia
+    deben ajustarse a las condiciones a priori del sujeto.
+  </p>
+  <table>
+    <tr>
+      <th>Antes de Kant</th>
+      <th>Kant</th>
+    </tr>
+    <tr>
+      <td>La mente debe copiar el objeto.</td>
+      <td>El objeto conocido se ajusta a las condiciones del sujeto.</td>
+    </tr>
+    <tr>
+      <td>Conocer es reflejar la realidad.</td>
+      <td>Conocer es organizar la experiencia.</td>
+    </tr>
+    <tr>
+      <td>El sujeto es pasivo.</td>
+      <td>El sujeto aporta formas y categorías a priori.</td>
+    </tr>
+    <tr>
+      <td>El problema es cómo llegar al objeto.</td>
+      <td>El problema es qué condiciones hacen posible que haya objeto para nosotros.</td>
+    </tr>
+  </table>
+  <div class="modelo">
+    <strong>Respuesta modelo breve:</strong>
+    La revolución copernicana de Kant consiste en invertir la relación tradicional entre sujeto y objeto.
+    No es que el sujeto copie pasivamente una realidad ya dada, sino que los objetos de experiencia
+    aparecen bajo las condiciones a priori del sujeto: espacio, tiempo y categorías del entendimiento.
+    Por eso conocemos fenómenos, no cosas en sí.
+  </div>
+  <h3>Juicios sintéticos a priori</h3>
+  <p>
+    El problema central de Kant puede formularse así:
+    ¿cómo son posibles los juicios sintéticos a priori?
+  </p>
+  <table>
+    <tr>
+      <th>Tipo de juicio</th>
+      <th>Explicación</th>
+      <th>Ejemplo</th>
+    </tr>
+    <tr>
+      <td>Analítico</td>
+      <td>El predicado ya está contenido en el sujeto.</td>
+      <td>Todo cuerpo es extenso.</td>
+    </tr>
+    <tr>
+      <td>Sintético</td>
+      <td>El predicado agrega algo nuevo.</td>
+      <td>El cuerpo es pesado.</td>
+    </tr>
+    <tr>
+      <td>A priori</td>
+      <td>No depende de una experiencia particular.</td>
+      <td>Necesidad matemática.</td>
+    </tr>
+    <tr>
+      <td>A posteriori</td>
+      <td>Depende de la experiencia.</td>
+      <td>Esta mesa es marrón.</td>
+    </tr>
+    <tr>
+      <td>Sintético a priori</td>
+      <td>Amplía conocimiento, pero vale universal y necesariamente.</td>
+      <td>Principios de matemática y física.</td>
+    </tr>
+  </table>
+  <h3>Facultades del conocimiento</h3>
+  <div class="diagram">
+    <div class="box blue">Sensibilidad</div>
+    <div class="arrow">→</div>
+    <div class="box">Espacio y tiempo</div>
+    <div class="arrow">→</div>
+    <div class="box">Intuiciones</div>
+  </div>
+  <div class="diagram">
+    <div class="box blue">Entendimiento</div>
+    <div class="arrow">→</div>
+    <div class="box">Categorías</div>
+    <div class="arrow">→</div>
+    <div class="box">Objeto de experiencia</div>
+  </div>
+  <div class="diagram">
+    <div class="box blue">Imaginación</div>
+    <div class="arrow">→</div>
+    <div class="box">Esquemas</div>
+    <div class="arrow">→</div>
+    <div class="box">Mediación entre sensibilidad y entendimiento</div>
+  </div>
+  <div class="cita">
+    “Las intuiciones sin conceptos son ciegas; los conceptos sin intuiciones son vacíos.”
+  </div>
+  <h3>Fenómeno y noúmeno</h3>
+  <table>
+    <tr>
+      <th>Concepto</th>
+      <th>Sentido</th>
+      <th>Consecuencia</th>
+    </tr>
+    <tr>
+      <td>Fenómeno</td>
+      <td>La cosa tal como aparece bajo nuestras formas de sensibilidad y categorías.</td>
+      <td>Puede ser conocido científicamente.</td>
+    </tr>
+    <tr>
+      <td>Noúmeno</td>
+      <td>La cosa en sí, considerada independientemente de nuestras condiciones de conocimiento.</td>
+      <td>Puede ser pensado, pero no conocido.</td>
+    </tr>
+  </table>
+  <div class="diagram">
+    <div class="box">Materia dada por experiencia</div>
+    <div class="arrow">+</div>
+    <div class="box blue">Espacio / tiempo</div>
+    <div class="arrow">+</div>
+    <div class="box blue">Categorías</div>
+    <div class="arrow">=</div>
+    <div class="box green">Fenómeno conocido</div>
+  </div>
+  <div class="modelo">
+    <strong>Respuesta modelo breve:</strong>
+    El fenómeno es la cosa tal como aparece para nosotros, organizada por espacio, tiempo y las categorías del entendimiento.
+    El noúmeno es la cosa en sí, es decir, la realidad considerada independientemente de nuestras condiciones de conocimiento.
+    La implicación es que el conocimiento humano tiene límites: podemos conocer objetos de experiencia, pero no las cosas en sí mismas.
+  </div>
+  <h3>Razón, metafísica e ideas regulativas</h3>
+  <p>
+    El entendimiento organiza fenómenos mediante categorías.
+    La razón, en cambio, busca lo incondicionado: quiere una totalidad última.
+    Por eso produce ideas como alma, mundo y Dios.
+  </p>
+  <table>
+    <tr>
+      <th>Idea de la razón</th>
+      <th>Función</th>
+      <th>Riesgo</th>
+    </tr>
+    <tr>
+      <td>Alma</td>
+      <td>Unidad de los fenómenos internos.</td>
+      <td>Tomarla como sustancia demostrable.</td>
+    </tr>
+    <tr>
+      <td>Mundo</td>
+      <td>Totalidad de los fenómenos externos.</td>
+      <td>Caer en antinomias.</td>
+    </tr>
+    <tr>
+      <td>Dios</td>
+      <td>Fundamento último o suma realidad.</td>
+      <td>Convertirlo en objeto de conocimiento teórico.</td>
+    </tr>
+  </table>
+  <div class="alerta">
+    <strong>Clave:</strong> Kant no destruye la metafísica por completo.
+    La limita como conocimiento teórico, pero conserva las ideas de la razón como regulativas:
+    orientan el pensamiento, aunque no conozcan objetos suprasensibles.
+  </div>
+  <h3>10 posibles preguntas de parcial — Kant</h3>
+  <div class="qa">
+    <details open><summary>1. ¿Cuál es la distinción kantiana entre fenómenos y noúmenos, y qué implicaciones tiene para los límites del conocimiento humano?</summary>
+      <p>Los fenómenos son las cosas tal como aparecen para nosotros, organizadas por las formas de la sensibilidad —espacio y tiempo— y por las categorías del entendimiento. Los noúmenos son las cosas en sí, consideradas independientemente de nuestras condiciones de conocimiento. La consecuencia es que sólo podemos conocer fenómenos, es decir, objetos de experiencia posible. El noúmeno puede pensarse, pero no conocerse. Así Kant limita el conocimiento humano y también limita las pretensiones de la metafísica tradicional.</p>
+    </details>
+    <details open><summary>2. ¿En qué consiste la “revolución copernicana” de Immanuel Kant en el ámbito del conocimiento?</summary>
+      <p>Consiste en invertir la relación tradicional entre sujeto y objeto. Antes se pensaba que el sujeto debía adaptarse al objeto para conocerlo. Kant sostiene que el objeto de experiencia se adapta a las condiciones a priori del sujeto. No conocemos copiando pasivamente la realidad, sino organizando lo dado mediante espacio, tiempo y categorías. Por eso el conocimiento es objetivo, pero sólo dentro del campo de la experiencia posible.</p>
+    </details>
+    <details><summary>3. ¿Cuál es el problema central de Kant en la Crítica de la razón pura?</summary>
+      <p>Explicar cómo es posible el conocimiento universal y necesario, especialmente el de la matemática y la física.</p>
+    </details>
+    <details><summary>4. ¿Por qué Kant responde a Hume?</summary>
+      <p>Porque Hume mostró que la causalidad no puede fundarse en la experiencia como conexión necesaria. Kant responde que la causalidad no viene de la experiencia, sino que es una categoría a priori del entendimiento.</p>
+    </details>
+    <details><summary>5. ¿Qué significa idealismo trascendental?</summary>
+      <p>Significa que conocemos los objetos según las condiciones a priori del sujeto, pero eso no implica inventar arbitrariamente la realidad.</p>
+    </details>
+    <details><summary>6. ¿Qué son los juicios sintéticos a priori?</summary>
+      <p>Son juicios que amplían el conocimiento y, al mismo tiempo, tienen validez universal y necesaria. Son la clave para explicar la ciencia.</p>
+    </details>
+    <details><summary>7. ¿Qué función cumplen espacio y tiempo?</summary>
+      <p>Son formas puras de la sensibilidad. No vienen de la experiencia; hacen posible que algo se nos aparezca como experiencia.</p>
+    </details>
+    <details><summary>8. ¿Qué son las categorías?</summary>
+      <p>Son conceptos puros del entendimiento, como causalidad, sustancia y unidad, que organizan la experiencia.</p>
+    </details>
+    <details><summary>9. ¿Qué papel cumple la imaginación?</summary>
+      <p>Mediar entre sensibilidad y entendimiento mediante esquemas que permiten aplicar categorías a los fenómenos temporales.</p>
+    </details>
+    <details><summary>10. ¿Qué ocurre con la metafísica en Kant?</summary>
+      <p>La metafísica no puede conocer objetos suprasensibles como alma, mundo o Dios, pero esas ideas conservan una función regulativa para orientar la razón.</p>
+    </details>
+  </div>
+</section>
+<section id="comparativo">
+  <h2>Cuadro comparativo final</h2>
+  <table class="comparativo">
+    <tr>
+      <th>Eje</th>
+      <th>Jaspers</th>
+      <th>Platón</th>
+      <th>Descartes</th>
+      <th>Hume</th>
+      <th>Kant</th>
+    </tr>
+    <tr>
+      <td>Pregunta central</td>
+      <td>¿Qué es filosofar?</td>
+      <td>¿Qué es lo real y cómo debe ordenarse la polis?</td>
+      <td>¿Qué certeza resiste toda duda?</td>
+      <td>¿De dónde vienen nuestras ideas?</td>
+      <td>¿Cómo es posible el conocimiento universal y necesario?</td>
+    </tr>
+    <tr>
+      <td>Punto de partida</td>
+      <td>Asombro, duda, límite, comunicación.</td>
+      <td>Distinción entre sensible e inteligible.</td>
+      <td>Duda metódica.</td>
+      <td>Experiencia.</td>
+      <td>Condiciones a priori del sujeto.</td>
+    </tr>
+    <tr>
+      <td>Problema del conocimiento</td>
+      <td>La filosofía no posee verdades definitivas como la ciencia.</td>
+      <td>Lo sensible cambia; sólo la Idea permite conocer.</td>
+      <td>Hay que fundar el saber en una certeza indudable.</td>
+      <td>No podemos ir más allá de las percepciones.</td>
+      <td>Conocemos fenómenos, no cosas en sí.</td>
+    </tr>
+    <tr>
+      <td>Sujeto</td>
+      <td>Existencia que se busca a sí misma.</td>
+      <td>Alma que debe ordenarse según la razón.</td>
+      <td>Res cogitans, sustancia pensante.</td>
+      <td>Haz de percepciones, no sustancia.</td>
+      <td>Sujeto trascendental que constituye la experiencia.</td>
+    </tr>
+    <tr>
+      <td>Metafísica</td>
+      <td>Búsqueda existencial de sentido.</td>
+      <td>Ideas trascendentes como fundamento.</td>
+      <td>Dios garantiza la verdad.</td>
+      <td>Crítica de sustancia, yo y causalidad.</td>
+      <td>Limitación de la metafísica como conocimiento.</td>
+    </tr>
+    <tr>
+      <td>Clave para recordar</td>
+      <td>Filosofar es ir de camino.</td>
+      <td>Justicia = cada parte cumple su función.</td>
+      <td>Pienso, luego existo.</td>
+      <td>Buscar la impresión correspondiente.</td>
+      <td>El objeto conocido se ajusta al sujeto.</td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h2>Línea argumental para estudiar</h2>
+  <div class="diagram">
+    <div class="box dark">Jaspers</div>
+    <div class="arrow">→</div>
+    <div class="box">La filosofía nace de experiencias humanas radicales.</div>
+  </div>
+  <div class="diagram">
+    <div class="box dark">Platón</div>
+    <div class="arrow">→</div>
+    <div class="box">El conocimiento exige superar lo sensible y ordenar la polis según la justicia.</div>
+  </div>
+  <div class="diagram">
+    <div class="box dark">Descartes</div>
+    <div class="arrow">→</div>
+    <div class="box">La modernidad funda el saber en el sujeto pensante.</div>
+  </div>
+  <div class="diagram">
+    <div class="box dark">Hume</div>
+    <div class="arrow">→</div>
+    <div class="box">El empirismo muestra los límites de razón, yo y causalidad.</div>
+  </div>
+  <div class="diagram">
+    <div class="box dark">Kant</div>
+    <div class="arrow">→</div>
+    <div class="box">El sujeto no copia el mundo: lo constituye como experiencia.</div>
+  </div>
+</section>
+<section id="transversales">
+  <h2>Preguntas transversales de alto rendimiento</h2>
+  <div class="qa">
+    <details><summary>1. ¿Qué relación hay entre Descartes y Kant?</summary>
+      <p>Descartes inaugura el giro hacia el sujeto con el cogito. Kant radicaliza ese giro: el sujeto ya no es sólo una sustancia pensante, sino la condición trascendental que hace posible la experiencia objetiva.</p>
+    </details>
+    <details><summary>2. ¿Qué relación hay entre Hume y Kant?</summary>
+      <p>Hume muestra que la causalidad no puede justificarse racionalmente desde la experiencia. Kant responde que la causalidad no viene de la experiencia, sino que es una categoría a priori que hace posible experimentar un mundo ordenado.</p>
+    </details>
+    <details><summary>3. ¿Qué diferencia hay entre Platón y Hume?</summary>
+      <p>Platón busca el fundamento del conocimiento en Ideas estables y trascendentes. Hume rechaza toda idea que no pueda remitirse a una impresión sensible o interna.</p>
+    </details>
+    <details><summary>4. ¿Qué diferencia hay entre Platón y Kant?</summary>
+      <p>Platón ubica el fundamento en Ideas trascendentes. Kant ubica las condiciones del conocimiento en el sujeto trascendental: espacio, tiempo y categorías.</p>
+    </details>
+    <details><summary>5. ¿Qué crítica le haría Hume a Descartes?</summary>
+      <p>Hume cuestionaría la idea de sustancia pensante. Para él no hay impresión de un yo permanente, sino sólo una sucesión de percepciones.</p>
+    </details>
+    <details><summary>6. ¿Qué crítica le haría Kant a Descartes?</summary>
+      <p>Kant consideraría insuficiente fundar el conocimiento en una sustancia pensante y en Dios. El problema no es probar sustancias, sino explicar las condiciones de posibilidad del conocimiento objetivo.</p>
+    </details>
+    <details><summary>7. ¿Por qué el problema de la causalidad es tan importante?</summary>
+      <p>Porque la ciencia depende de leyes causales universales. Hume las reduce a costumbre; Kant intenta fundamentarlas como categorías a priori del entendimiento.</p>
+    </details>
+    <details><summary>8. ¿Qué significa “límite” en estos autores?</summary>
+      <p>En Jaspers, las situaciones límite revelan la finitud humana. En Hume, el límite es la experiencia. En Kant, el límite es la experiencia posible: no podemos conocer el noúmeno.</p>
+    </details>
+    <details><summary>9. ¿Qué lugar ocupa la imaginación?</summary>
+      <p>En Hume, la imaginación asocia percepciones y produce ficciones como identidad y causalidad. En Kant, la imaginación media entre sensibilidad y entendimiento mediante esquemas.</p>
+    </details>
+    <details><summary>10. ¿Cómo se transforma la idea de verdad?</summary>
+      <p>En Platón, la verdad está en lo inteligible. En Descartes, en lo claro y distinto garantizado por Dios. En Hume, queda limitada por la experiencia. En Kant, la verdad objetiva vale para fenómenos constituidos por el sujeto trascendental.</p>
+    </details>
+  </div>
+</section>
+<section id="glosario">
+  <h2>Glosario mínimo</h2>
+  <div class="grid">
+    <div class="card"><strong>Asombro:</strong> experiencia que rompe la familiaridad con el mundo.</div>
+    <div class="card"><strong>Duda metódica:</strong> duda usada como método para hallar certeza.</div>
+    <div class="card"><strong>Situación límite:</strong> experiencia inevitable de finitud.</div>
+    <div class="card"><strong>Idea platónica:</strong> esencia inteligible y estable.</div>
+    <div class="card"><strong>Methexis:</strong> participación de lo sensible en la Idea.</div>
+    <div class="card"><strong>Mímesis:</strong> imitación; base de la crítica platónica al arte.</div>
+    <div class="card"><strong>Justicia platónica:</strong> armonía en la que cada parte cumple su función.</div>
+    <div class="card"><strong>Cogito:</strong> certeza de que existo en tanto pienso.</div>
+    <div class="card"><strong>Res cogitans:</strong> sustancia pensante.</div>
+    <div class="card"><strong>Res extensa:</strong> sustancia material extensa.</div>
+    <div class="card"><strong>Impresión:</strong> percepción directa y vivaz en Hume.</div>
+    <div class="card"><strong>Idea:</strong> copia debilitada de una impresión en Hume.</div>
+    <div class="card"><strong>Costumbre:</strong> origen psicológico de la creencia causal.</div>
+    <div class="card"><strong>A priori:</strong> independiente de una experiencia particular.</div>
+    <div class="card"><strong>Categoría:</strong> concepto puro del entendimiento en Kant.</div>
+    <div class="card"><strong>Fenómeno:</strong> objeto tal como aparece para nosotros.</div>
+    <div class="card"><strong>Noúmeno:</strong> cosa en sí, pensable pero no cognoscible.</div>
+    <div class="card"><strong>Revolución copernicana:</strong> giro kantiano por el cual el objeto conocido se ajusta a las condiciones del sujeto.</div>
+  </div>
+</section>
+<section class="footer">
+  <h2>Cómo usar este resumen para aprobar</h2>
+  <p>
+    Para estudiar, conviene no memorizar autores aislados, sino relaciones:
+    Platón separa apariencia y verdad y define la justicia como armonía funcional;
+    Descartes busca certeza en el sujeto mediante el cogito;
+    Hume limita el conocimiento a la experiencia y desarma yo, sustancia y causalidad;
+    Kant responde a Hume mostrando que el sujeto aporta condiciones a priori;
+    Jaspers explica por qué seguimos filosofando: por asombro, duda, conmoción y comunicación.
+  </p>
+  <p>
+    Frase final para recordar:
+    <strong>la filosofía avanza preguntando por sus propios límites.</strong>
+  </p>
+</section>
+</main>
+</body>
+</html>
