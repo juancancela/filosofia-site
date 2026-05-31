@@ -1,3 +1,6 @@
+import { existsSync, readdirSync } from 'node:fs';
+import { extname, join } from 'node:path';
+
 export interface Material {
   title: string;
   type: 'pdf' | 'audio' | 'video' | 'markdown' | 'image';
@@ -64,6 +67,67 @@ export interface Parcial {
     instructions: string;
     questions: ParcialQuestion[];
   };
+}
+
+const generatedTypeByExtension: Record<string, Material['type'] | undefined> = {
+  '.md': 'markdown',
+  '.m4a': 'audio',
+  '.mp3': 'audio',
+  '.mp4': 'video',
+  '.pdf': 'pdf',
+  '.png': 'image',
+  '.jpg': 'image',
+  '.jpeg': 'image',
+  '.webp': 'image',
+};
+
+function pathExistsInPublic(path: string) {
+  if (!path.startsWith('/content/')) return true;
+  return existsSync(join(process.cwd(), 'public', path.slice(1)));
+}
+
+function authorFolder(author: Author) {
+  const knownPath = [...author.works.map((work) => work.path), ...author.generated.map((material) => material.path)]
+    .find((path) => path.startsWith('/content/autores/'));
+  const match = knownPath?.match(/^\/content\/autores\/([^/]+)/);
+
+  return match?.[1] ?? author.id.replaceAll('-', '_');
+}
+
+function titleFromFilename(filename: string) {
+  return filename
+    .replace(/\.[^.]+$/, '')
+    .replace(/[_-]+/g, ' ')
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function withDiscoveredAuthorMaterials(author: Author): Author {
+  const folder = authorFolder(author);
+  const generatedDir = join(process.cwd(), 'public', 'content', 'autores', folder, 'material_generado');
+  const curated = author.generated.filter((material) => pathExistsInPublic(material.path));
+  const seenPaths = new Set(curated.map((material) => material.path));
+
+  if (!existsSync(generatedDir)) {
+    return { ...author, generated: curated };
+  }
+
+  const discovered = readdirSync(generatedDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile())
+    .map((entry) => {
+      const type = generatedTypeByExtension[extname(entry.name).toLowerCase()];
+      if (!type) return undefined;
+
+      return {
+        title: titleFromFilename(entry.name),
+        type,
+        path: `/content/autores/${folder}/material_generado/${entry.name}`,
+      };
+    })
+    .filter((material): material is Material => Boolean(material))
+    .filter((material) => !seenPaths.has(material.path))
+    .sort((a, b) => a.path.localeCompare(b.path, 'es', { numeric: true, sensitivity: 'base' }));
+
+  return { ...author, generated: [...curated, ...discovered] };
 }
 
 export const clases: Clase[] = [
@@ -135,7 +199,7 @@ export const clases: Clase[] = [
   },
 ];
 
-export const authors: Author[] = [
+const authorDefinitions: Author[] = [
   {
     id: 'platon',
     name: 'Platon',
@@ -313,12 +377,22 @@ export const authors: Author[] = [
       { title: 'Relecturas — Claves hermeneuticas', path: '/content/autores/eudeba/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos.pdf' },
     ],
     generated: [
-      { title: 'Relecturas — Cap. 1 (resumen)', type: 'pdf', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_1_resumen.pdf' },
-      { title: 'Relecturas — Cap. 1 (audio)', type: 'audio', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_1_resumen.m4a' },
+      { title: 'Relecturas — Cap. 1: Platon (resumen)', type: 'pdf', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_1_platon_resumen.pdf' },
+      { title: 'Relecturas — Cap. 1: Platon textos seleccionados', type: 'pdf', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_1_platon_textos_seleccionados.pdf' },
       { title: 'Relecturas — Cap. 4: Descartes (resumen)', type: 'pdf', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_4_descartes_resumen.pdf' },
+      { title: 'Relecturas — Cap. 4: Descartes textos seleccionados', type: 'pdf', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_4_descartes_textos_seleccionados.pdf' },
+      { title: 'Relecturas — Cap. 5: Hume (resumen)', type: 'pdf', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_5_hume_resumen.pdf' },
+      { title: 'Relecturas — Cap. 5: Hume textos seleccionados', type: 'pdf', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_5_hume_textos_seleccionados.pdf' },
+      { title: 'Relecturas — Cap. 6: Kant (resumen)', type: 'pdf', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_6_kant_resumen.pdf' },
+      { title: 'Relecturas — Cap. 6: Kant textos seleccionados', type: 'pdf', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_6_kant_textos_seleccionados.pdf' },
+      { title: 'Relecturas — Cap. 1: Platon (audio)', type: 'audio', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_1_platon_resumen.m4a' },
+      { title: 'Relecturas — Cap. 1: Platon textos seleccionados (audio)', type: 'audio', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_1_platon_textos_seleccionados.m4a' },
       { title: 'Relecturas — Cap. 4: Descartes (audio)', type: 'audio', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_4_descartes_resumen.m4a' },
-      { title: 'Relecturas — Cap. 4: Descartes textos seleccionados (resumen)', type: 'pdf', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_4_descartes_textos_seleccionados_resumen.pdf' },
-      { title: 'Relecturas — Cap. 4: Descartes textos seleccionados (audio)', type: 'audio', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_4_descartes_textos_seleccionados_resumen.m4a' },
+      { title: 'Relecturas — Cap. 4: Descartes textos seleccionados (audio)', type: 'audio', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_4_descartes_textos_seleccionados.m4a' },
+      { title: 'Relecturas — Cap. 5: Hume (audio)', type: 'audio', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_5_hume_resumen.m4a' },
+      { title: 'Relecturas — Cap. 5: Hume textos seleccionados (audio)', type: 'audio', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_5_hume_textos_seleccionados.m4a' },
+      { title: 'Relecturas — Cap. 6: Kant (audio)', type: 'audio', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_6_kant_resumen.m4a' },
+      { title: 'Relecturas — Cap. 6: Kant textos seleccionados (audio)', type: 'audio', path: '/content/autores/eudeba/material_generado/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos_cap_6_kant_textos_seleccionados.m4a' },
     ],
   },
   {
@@ -352,3 +426,5 @@ export const authors: Author[] = [
     ],
   },
 ];
+
+export const authors: Author[] = authorDefinitions.map(withDiscoveredAuthorMaterials);
