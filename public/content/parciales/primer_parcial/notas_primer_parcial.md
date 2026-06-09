@@ -54,11 +54,8 @@ CLAVES:
     -DUDA
     -CONMOCIÓN DEL HOMBRE
 (...)
-El filosofar es como un despertar de la vinculación a las necesidades de
-la vida. Este despertar tiene lugar mirando desinteresadamente a las cosas,
-al cielo y al mundo, preguntando qué sea todo ello y de dónde todo ello
-venga, preguntas cuya respuesta no serviría para nada útil, sino que resulta
-satisfactoria por sí sola.
+El filosofar es como un despertar de la vinculación a las necesidades de la vida. Este despertar tiene lugar mirando desinteresadamente a las cosas, al cielo y al mundo, preguntando qué sea todo ello y de dónde todo ello
+venga, preguntas cuya respuesta no serviría para nada útil, sino que resulta satisfactoria por sí sola.
 (...)
 Una vez que he satisfecho mi asombro y admiración con el conocimiento de lo que existe, pronto se anuncia la duda.
 (...)
