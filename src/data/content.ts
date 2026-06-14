@@ -197,6 +197,14 @@ export const clases: Clase[] = [
       { title: 'Grabacion de la clase — Parte 4', type: 'audio', path: '/content/clases-notas/clase_7/part_4.mp3' },
     ],
   },
+  {
+    number: 10,
+    title: 'Nietzsche — Fragmentos',
+    description: 'Fragmentos sobre el pensamiento de Friedrich Nietzsche: critica de la moral, del cristianismo y de la metafisica; el filosofo como creador de valores y el filosofar a martillazos.',
+    materials: [
+      { title: 'Nietzsche (fragmentos)', type: 'pdf', path: '/content/clases/clase_10/Nietzsche (fragmentos).pdf' },
+    ],
+  },
 ];
 
 const authorDefinitions: Author[] = [
@@ -348,6 +356,22 @@ const authorDefinitions: Author[] = [
       { title: '¿Que es lo contemporaneo?', path: '/content/autores/giorgio_agamben/que_es_lo_contemporaneo_giorgio_agamben.pdf' },
     ],
     generated: [],
+  },
+  {
+    id: 'jean-paul-sartre',
+    name: 'Sartre',
+    fullName: 'Jean-Paul Sartre',
+    years: '1905 – 1980',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Jean-Paul_Sartre_1967.jpg/120px-Jean-Paul_Sartre_1967.jpg',
+    bio: 'Filosofo, novelista y dramaturgo frances, figura central del existencialismo. En El existencialismo es un humanismo defiende que la existencia precede a la esencia: el hombre no tiene naturaleza fija sino que se define por sus actos y elecciones, en plena libertad y responsabilidad.',
+    works: [
+      { title: 'El existencialismo es un humanismo', path: '/content/autores/jean_paul_sartre/el_existencialismo_es_un_humanismo_sartre.pdf' },
+    ],
+    generated: [
+      { title: 'El existencialismo es un humanismo — Resumen (PDF)', type: 'pdf', path: '/content/autores/jean_paul_sartre/material_generado/el_existencialismo_es_un_humanismo_sartre_resumen.pdf' },
+      { title: 'El existencialismo es un humanismo — Resumen (audio)', type: 'audio', path: '/content/autores/jean_paul_sartre/material_generado/el_existencialismo_es_un_humanismo_sartre_resumen.m4a' },
+      { title: 'El existencialismo es un humanismo — Opinion (audio)', type: 'audio', path: '/content/autores/jean_paul_sartre/material_generado/el_existencialismo_es_un_humanismo_sartre_opinion.m4a' },
+    ],
   },
   {
     id: 'william-guthrie',
