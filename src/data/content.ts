@@ -362,7 +362,7 @@ const authorDefinitions: Author[] = [
     name: 'Sartre',
     fullName: 'Jean-Paul Sartre',
     years: '1905 – 1980',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Jean-Paul_Sartre_1967.jpg/120px-Jean-Paul_Sartre_1967.jpg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/7/77/Flickr_-_Government_Press_Office_%28GPO%29_-_Jean_Paul_Sartre_and_Simone_De_Beauvoir_welcomed_by_Avraham_Shlonsky_and_Leah_Goldberg_%28cropped%29.jpg',
     bio: 'Filosofo, novelista y dramaturgo frances, figura central del existencialismo. En El existencialismo es un humanismo defiende que la existencia precede a la esencia: el hombre no tiene naturaleza fija sino que se define por sus actos y elecciones, en plena libertad y responsabilidad.',
     works: [
       { title: 'El existencialismo es un humanismo', path: '/content/autores/jean_paul_sartre/el_existencialismo_es_un_humanismo_sartre.pdf' },
