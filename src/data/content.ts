@@ -368,10 +368,35 @@ const authorDefinitions: Author[] = [
       { title: 'El existencialismo es un humanismo', path: '/content/autores/jean_paul_sartre/el_existencialismo_es_un_humanismo_sartre.pdf' },
     ],
     generated: [
+      { title: 'Notas de estudio — Sartre (markdown)', type: 'markdown', path: '/content/autores/jean_paul_sartre/notas_sastre.md' },
       { title: 'El existencialismo es un humanismo — Resumen (PDF)', type: 'pdf', path: '/content/autores/jean_paul_sartre/material_generado/el_existencialismo_es_un_humanismo_sartre_resumen.pdf' },
       { title: 'El existencialismo es un humanismo — Resumen (audio)', type: 'audio', path: '/content/autores/jean_paul_sartre/material_generado/el_existencialismo_es_un_humanismo_sartre_resumen.m4a' },
       { title: 'El existencialismo es un humanismo — Opinion (audio)', type: 'audio', path: '/content/autores/jean_paul_sartre/material_generado/el_existencialismo_es_un_humanismo_sartre_opinion.m4a' },
     ],
+  },
+  {
+    id: 'immanuel-kant',
+    name: 'Kant',
+    fullName: 'Immanuel Kant',
+    years: '1724 – 1804',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Immanuel_Kant_%28painted_portrait%29.jpg/120px-Immanuel_Kant_%28painted_portrait%29.jpg',
+    bio: 'Filosofo prusiano, figura central de la Ilustracion. En la Critica de la razon pura opera su "revolucion copernicana": son los objetos los que deben regirse por las condiciones del sujeto cognoscente, no al reves. Distingue fenomeno (la cosa tal como se nos aparece) de noumeno (la cosa en si, pensable pero no conocible).',
+    works: [],
+    generated: [
+      { title: 'Notas de estudio — Kant (markdown)', type: 'markdown', path: '/content/autores/immanuel_kant/notas_kand.md' },
+    ],
+  },
+  {
+    id: 'simone-de-beauvoir',
+    name: 'Beauvoir',
+    fullName: 'Simone de Beauvoir',
+    years: '1908 – 1986',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Simone_de_Beauvoir2.png/120px-Simone_de_Beauvoir2.png',
+    bio: 'Filosofa, escritora y figura central del existencialismo y del feminismo. En El segundo sexo formula que "no se nace mujer, se llega a serlo": la mujer no se define por una esencia natural ni por el "eterno femenino", sino por una situacion historica y social que la constituyo como Alteridad, como lo Otro frente al varon-Sujeto.',
+    works: [
+      { title: 'El segundo sexo', path: '/content/autores/simone_de_beauvoiir/el_segundo_sexo.pdf' },
+    ],
+    generated: [],
   },
   {
     id: 'william-guthrie',

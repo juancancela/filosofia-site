@@ -13,6 +13,7 @@ const pdfs = author.generated.filter((m: any) => m.type === 'pdf');
 const audios = author.generated.filter((m: any) => m.type === 'audio');
 const videos = author.generated.filter((m: any) => m.type === 'video');
 const images = author.generated.filter((m: any) => m.type === 'image');
+const notes = author.generated.filter((m: any) => m.type === 'markdown');
 ---
 
 <Layout title={author.fullName}>
@@ -47,28 +48,54 @@ const images = author.generated.filter((m: any) => m.type === 'image');
     </div>
 
     <!-- Obras -->
-    <section class="mb-12">
-      <h2 class="font-serif text-2xl font-bold text-stone-900 mb-4">Textos fuente</h2>
-      <div class="grid gap-3">
-        {author.works.map((work: any) => (
-          <a
-            href={`/visor?file=${encodeURIComponent(work.path)}&title=${encodeURIComponent(work.title)}`}
-            class="group flex items-center gap-3 bg-white rounded-lg border border-stone-200 p-4 hover:border-amber-300 hover:shadow-sm transition-all"
-          >
-            <div class="w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </div>
-            <div>
-              <p class="font-medium text-stone-800 group-hover:text-amber-700 transition-colors">{work.title}</p>
-              <p class="text-xs text-stone-400">Abrir en el visor</p>
-            </div>
-          </a>
-        ))}
-      </div>
-    </section>
+    {author.works.length > 0 && (
+      <section class="mb-12">
+        <h2 class="font-serif text-2xl font-bold text-stone-900 mb-4">Textos fuente</h2>
+        <div class="grid gap-3">
+          {author.works.map((work: any) => (
+            <a
+              href={`/visor?file=${encodeURIComponent(work.path)}&title=${encodeURIComponent(work.title)}`}
+              class="group flex items-center gap-3 bg-white rounded-lg border border-stone-200 p-4 hover:border-amber-300 hover:shadow-sm transition-all"
+            >
+              <div class="w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <div>
+                <p class="font-medium text-stone-800 group-hover:text-amber-700 transition-colors">{work.title}</p>
+                <p class="text-xs text-stone-400">Abrir en el visor</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Notas de estudio (markdown) -->
+    {notes.length > 0 && (
+      <section class="mb-12">
+        <h2 class="font-serif text-2xl font-bold text-stone-900 mb-4">Notas de estudio</h2>
+        <div class="grid gap-3">
+          {notes.map((m: any) => (
+            <a
+              href={m.path}
+              download
+              class="group flex items-center gap-3 bg-white rounded-lg border border-stone-200 p-4 hover:border-amber-300 hover:shadow-sm transition-all"
+            >
+              <div class="w-10 h-10 rounded-lg bg-stone-100 text-stone-600 flex items-center justify-center flex-shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              </div>
+              <div>
+                <p class="font-medium text-stone-800 group-hover:text-amber-700 transition-colors">{m.title}</p>
+                <p class="text-xs text-stone-400">Markdown — Descargar (.md)</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
 
     <!-- Material generado -->
-    {author.generated.length > 0 && (
+    {(pdfs.length > 0 || audios.length > 0 || videos.length > 0 || images.length > 0) && (
       <section>
         <h2 class="font-serif text-2xl font-bold text-stone-900 mb-4">Material generado</h2>
 
