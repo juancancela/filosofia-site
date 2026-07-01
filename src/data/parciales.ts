@@ -434,9 +434,270 @@ export const parciales: Parcial[] = [
     id: 'segundo-parcial',
     number: 'Segundo parcial',
     title: 'Segundo parcial — Introduccion a la Filosofia',
-    subtitle: 'CBC | UBA · Sede Chivilcoy',
+    subtitle: 'CBC | UBA · Ciudad Universitaria',
     description:
-      'Material organizado para el segundo parcial: textos provistos por el docente (Hegel y Nietzsche en Relecturas, Sartre y Beauvoir en sus obras), materiales generados a partir de ellos para enriquecer el estudio, el simulacro entregado en clase y las respuestas elaboradas estrictamente a partir de ese material.',
+      'Segundo parcial tomado el 30/06/2026 (Comision 24215, Ciudad Universitaria): textos provistos por el docente (Hegel y Nietzsche en Relecturas, Sartre y Beauvoir en sus obras), materiales generados para el estudio, el examen transcripto y las respuestas a cada una de las 8 preguntas elaboradas estrictamente a partir de ese material.',
+    topics: [
+      { author: 'Hegel', detail: 'Fenomenologia del Espiritu — entendimiento y razon, conocimiento como resultado y camino, saber absoluto' },
+      { author: 'Friedrich Nietzsche', detail: 'Sobre verdad y mentira en sentido extramoral + Como el "mundo verdadero" acabo convirtiendose en una fabula (nihilismo, verdad como evidencia)' },
+      { author: 'Jean-Paul Sartre', detail: 'El existencialismo es un humanismo (pp. 21-40)' },
+      { author: 'Simone de Beauvoir', detail: 'El segundo sexo — Introduccion (pp. 47-64)' },
+    ],
+    contents: [
+      {
+        title: 'Relecturas — Claves hermeneuticas (Hegel y Nietzsche)',
+        type: 'pdf',
+        source: 'docente',
+        path: '/content/parciales/segundo_parcial/contenido/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos.pdf',
+      },
+      {
+        title: 'Jean-Paul Sartre — El existencialismo es un humanismo',
+        type: 'pdf',
+        source: 'docente',
+        path: '/content/parciales/segundo_parcial/contenido/el_existencialismo_es_un_humanismo_sartre.pdf',
+      },
+      {
+        title: 'Simone de Beauvoir — El segundo sexo',
+        type: 'pdf',
+        source: 'docente',
+        path: '/content/parciales/segundo_parcial/contenido/el_segundo_sexo.pdf',
+      },
+    ],
+    generated: [
+      {
+        title: 'La Caida de los Absolutos (PDF)',
+        type: 'pdf',
+        source: 'generado',
+        origin: 'Hegel, Nietzsche, Sartre y Beauvoir — sintesis del parcial',
+        path: '/content/parciales/segundo_parcial/material_generado/la_caida_de_los_absolutos.pdf',
+      },
+      {
+        title: 'Lona pintada sobre el vacio (audio)',
+        type: 'audio',
+        source: 'generado',
+        origin: 'Hegel, Nietzsche, Sartre y Beauvoir — debate del parcial',
+        path: '/content/parciales/segundo_parcial/material_generado/lona_pintada_sobre_el_vacio.m4a',
+      },
+      {
+        title: 'Guia del parcial de Filosofia (video)',
+        type: 'video',
+        source: 'generado',
+        origin: 'Hegel, Nietzsche, Sartre y Beauvoir — guia audiovisual',
+        path: '/content/parciales/segundo_parcial/material_generado/guia_parcial_filosofia.mp4',
+      },
+    ],
+    example: {
+      title: 'Simulacro de segundo parcial — provisto por el docente',
+      path: '/content/parciales/segundo_parcial/Simulacro segundo parcial.pdf',
+    },
+    exam: {
+      header: 'SEGUNDO PARCIAL DE FILOSOFIA — CBC | UBA, CIUDAD UNIVERSITARIA',
+      date: '30 de junio de 2026',
+      sede: 'Ciudad Universitaria · Comision 24215',
+      instructions: 'Elegir y responder solo 4 de las siguientes preguntas.',
+      questions: [
+        {
+          number: 1,
+          question:
+            'Para Hegel, en que consiste la diferencia entre el entendimiento (Verstand) y la razon (Vernunft) al momento de abordar el conocimiento de un objeto? Por que sostiene que el conocimiento cientifico exige "entregarse a la vida del objeto"?',
+          inScope: true,
+          answer: [
+            'Para Hegel, el entendimiento (Verstand) y la razon (Vernunft) son dos maneras distintas de encarar el conocimiento de un objeto. El entendimiento separa, clasifica y fija oposiciones: piensa en dicotomias (sujeto/objeto, fenomeno/absoluto, naturaleza/libertad) y detiene lo real en determinaciones estables y separadas. Es una operacion necesaria e imprescindible —sin distinguir no hay conocimiento posible—, pero se queda corto: al fijar las oposiciones no capta el movimiento y deja las determinaciones aisladas, como muertas.',
+            'La razon, en cambio, comprende las relaciones y el movimiento. Integra en una totalidad dinamica las oposiciones que el entendimiento habia fijado, y capta la contradiccion, la transformacion y la superacion. Por eso el verdadero saber es racional en sentido hegeliano: saber es saber el proceso, no simplemente tener determinaciones clasificadas. La razon no anula el trabajo del entendimiento (lo necesita como momento), pero lo supera al devolver movilidad a lo que aquel habia fijado.',
+            'De ahi la exigencia de "entregarse a la vida del objeto". El conocimiento cientifico no consiste en aplicarle al objeto un esquema externo o clasificaciones traidas de afuera, sino en seguir el automovimiento del propio contenido. El que conoce debe sumergirse en el objeto, dejar que se despliegue segun su propia necesidad y acompañar su ritmo interno, en lugar de imponerle un marco fijo desde la orilla.',
+            'Esto se entiende desde la nocion hegeliana de experiencia: conocer no es sacar una foto de un objeto que estaria dado de antemano, sino atravesar un proceso que transforma tanto al objeto como a la conciencia. Entregarse a la vida del objeto es abandonar la comodidad del entendimiento que ordena desde afuera y ponerse al servicio del despliegue del contenido. En ese punto la conciencia deja de meramente representar y pasa a pensar racionalmente el movimiento de la cosa; solo asi el saber deja de ser una clasificacion externa y se vuelve conocimiento de la vida misma del objeto.',
+          ].join('\n\n'),
+          references: [
+            {
+              source: 'docente',
+              document: 'Relecturas — Capitulo sobre Hegel (Fenomenologia del Espiritu)',
+              path: '/content/parciales/segundo_parcial/contenido/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos.pdf',
+            },
+            {
+              source: 'generado',
+              document: 'La Caida de los Absolutos',
+              path: '/content/parciales/segundo_parcial/material_generado/la_caida_de_los_absolutos.pdf',
+            },
+          ],
+        },
+        {
+          number: 2,
+          question:
+            'Explique por que, para Hegel, el conocimiento es a la vez "el resultado y el camino". Que quiere decir que cada "estacion" o momento del conocer, por mas elemental que sea, es necesario para alcanzar el saber absoluto?',
+          inScope: true,
+          answer: [
+            'Para Hegel, el conocimiento —y en particular el saber absoluto— no es solo la meta a la que se llega, sino tambien todo el recorrido que condujo hasta ella. Un resultado separado de su camino seria una afirmacion vacia, un cadaver: saber "la conclusion" sin haber hecho el trayecto no es verdadero saber. La verdad no cae de golpe ni se alcanza por una intuicion instantanea: se construye a lo largo de un itinerario de formas de conciencia (certeza sensible, percepcion, entendimiento, autoconciencia, razon, espiritu) que se van poniendo a prueba y superando.',
+            'Por eso el conocimiento es resultado y camino a la vez: el resultado solo es verdadero si carga consigo el proceso que lo produjo, y el camino solo tiene sentido porque tiende a un resultado. Comprender de verdad algo es comprender como se llego a ello.',
+            'Que cada estacion o momento del conocer sea necesario quiere decir que los saberes parciales no son simplemente falsos ni descartables: son momentos imprescindibles del desarrollo. Cada forma de conciencia cree, en su momento, ser definitiva; al experimentar el objeto descubre que su certeza era parcial y entra en crisis; y esa crisis —el camino de la duda o de la desesperacion— la empuja a una forma mas rica que conserva lo valido de la anterior. La conciencia progresa, asi, perdiendo sus certezas: equivocarse no la deja afuera del saber, la mete adentro del camino.',
+            'De ahi que el saber absoluto no consista en saberlo "todo" como una enciclopedia infinita de datos, sino en comprender retrospectivamente el recorrido completo: la meta junto con el camino, los errores, las experiencias parciales, las contradicciones y sus superaciones. Es un saber del saber: la conciencia no solo conoce objetos, sabe COMO llego a saberlos. Saltarse una estacion, por elemental que parezca, seria quedarse sin el contenido que ese momento aporta y sin la superacion que hace posible la siguiente; por eso cada una es un eslabon necesario para alcanzar el saber absoluto.',
+          ].join('\n\n'),
+          references: [
+            {
+              source: 'docente',
+              document: 'Relecturas — Capitulo sobre Hegel (Introduccion de la Fenomenologia)',
+              path: '/content/parciales/segundo_parcial/contenido/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos.pdf',
+            },
+            {
+              source: 'generado',
+              document: 'La Caida de los Absolutos',
+              path: '/content/parciales/segundo_parcial/material_generado/la_caida_de_los_absolutos.pdf',
+            },
+          ],
+        },
+        {
+          number: 3,
+          question:
+            'Que entiende Nietzsche por "nihilismo"? Explique por que, para el, nihil no significa "no-ser" sino "valor de nada", y de que manera este proceso comienza con el platonismo.',
+          inScope: true,
+          answer: [
+            'Para Nietzsche, el nihilismo no significa simplemente "creer en la nada". Su nucleo es la perdida de valor de los valores supremos: es la situacion en que la Idea, Dios, la verdad absoluta o el deber moral dejan de convencer y ya no logran orientar la vida. Nietzsche lo define como la falta de respuesta a la pregunta "para que?": cuando los fines ultimos se desmoronan, queda un vacio de sentido.',
+            'Por eso aclara que nihil no alude al "no-ser" —no se trata de que las cosas dejen de existir ni de una tesis sobre la nada metafisica— sino al "valor de nada": lo que se desvaloriza es el sentido, no el ser. El mundo sigue estando ahi (el devenir, el cuerpo, la vida); lo que se derrumba es la creencia en un fundamento absoluto que le daba valor desde afuera. Nihilismo es, entonces, que aquello que valia como valor supremo pase a no valer nada.',
+            'Este proceso no empieza, como suele creerse, con la muerte de Dios en la modernidad, sino mucho antes, con el platonismo. Al inventar un "mundo verdadero" superior —el de las Ideas eternas y perfectas— y colocar alli el valor maximo, Platon puso el sentido de la vida AFUERA de esta vida, en un mas alla trascendente. Con ese gesto desvalorizo el unico mundo real, el sensible y cambiante, que quedo rebajado a mera apariencia.',
+            'Ese mismo movimiento se repite despues bajo distintas mascaras (el cristianismo y su mas alla prometido; Kant y la cosa en si con el deber moral): siempre un fundamento absoluto, un Theos, colocado por encima de la vida para darle sentido desde afuera. El nihilismo estaba latente ahi desde el comienzo: al poner el valor fuera de la vida, ya se habia negado a esta su valor propio. Cuando finalmente esos fundamentos caen y se revelan huecos, aflora abiertamente la falta de sentido que estaba implicada desde Platon. Por eso Nietzsche sostiene que el nihilismo es la logica interna de toda la metafisica occidental, y que comienza con el platonismo.',
+          ].join('\n\n'),
+          references: [
+            {
+              source: 'docente',
+              document: 'Relecturas — Capitulo sobre Nietzsche (Como el "mundo verdadero" acabo convirtiendose en una fabula)',
+              path: '/content/parciales/segundo_parcial/contenido/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos.pdf',
+            },
+            {
+              source: 'generado',
+              document: 'La Caida de los Absolutos',
+              path: '/content/parciales/segundo_parcial/material_generado/la_caida_de_los_absolutos.pdf',
+            },
+          ],
+        },
+        {
+          number: 4,
+          question:
+            'Explique la critica de Nietzsche al concepto de verdad como evidencia. Por que sostiene que la claridad, el orden y la simplicidad deberian hacernos sospechar que estamos frente a algo falso, antes que ser garantia de verdad?',
+          inScope: true,
+          answer: [
+            'Nietzsche critica la idea de verdad como evidencia: la verdad que se impondria por su claridad y distincion (al modo del criterio cartesiano, donde lo claro y distinto es garantia de certeza). Para desmontarla parte de su concepcion de lo real: lo real es devenir, singularidad y multiplicidad. Cada cosa es unica e irrepetible y el flujo de lo real no se deja atrapar por conceptos fijos.',
+            'El lenguaje y el concepto, en cambio, fijan, estabilizan y simplifican. Para formar la palabra "arbol" hay que borrar las diferencias entre todos los arboles concretos; todo concepto nace de igualar lo que no es igual y de olvidar ese acto de igualacion. Las verdades son, en el fondo, metaforas gastadas por el uso: primero fueron invenciones y despues, de tanto repetirse, parecieron naturales y obvias.',
+            'De ahi la inversion que propone Nietzsche: la claridad, el orden y la simplicidad no son garantia de que hayamos captado lo real, sino sintomas de cuanto lo hemos simplificado y esquematizado. Cuanto mas claro, ordenado y simple se nos presenta un contenido, mas trabajo de abstraccion se le aplico, y por lo tanto mas lejos esta de la singularidad y del devenir efectivos. La evidencia es el resultado de haber recortado y aplanado lo real para volverlo manejable, no la señal de una copia fiel del mundo.',
+            'Por eso la claridad deberia hacernos sospechar: delata la mano del concepto que simplifica y la comodidad de una ficcion util bien construida, no la transparencia de las cosas. La ciencia es util porque ordena y permite calcular, pero cae en error cuando olvida que trabaja con ficciones y cree que sus conceptos claros captan la realidad en si. Frente a eso, quien esta paradojicamente mas cerca de la "verdad" es el artista, que crea sus metaforas SABIENDO que las crea y no las confunde con lo absoluto: por eso Nietzsche puede decir que "solo se puede decir la verdad mintiendo". Lo evidente, en suma, debe ponernos en guardia, porque suele indicar que el concepto ya hizo su trabajo de simplificacion.',
+          ].join('\n\n'),
+          references: [
+            {
+              source: 'docente',
+              document: 'Relecturas — Capitulo sobre Nietzsche (Sobre verdad y mentira en sentido extramoral)',
+              path: '/content/parciales/segundo_parcial/contenido/relecturas_claves_hermeneuticas_para_la_comprension_de_los_textos_filosoficos.pdf',
+            },
+            {
+              source: 'generado',
+              document: 'La Caida de los Absolutos',
+              path: '/content/parciales/segundo_parcial/material_generado/la_caida_de_los_absolutos.pdf',
+            },
+          ],
+        },
+        {
+          number: 5,
+          question:
+            'Sartre afirma que el hombre "es ante todo un proyecto que se vive subjetivamente" y distingue esto de lo que se entiende ordinariamente por "querer". Explique esta distincion y por que resulta clave para entender que "el hombre no es otra cosa que lo que el se hace".',
+          inScope: true,
+          answer: [
+            'Cuando Sartre dice que el hombre "es ante todo un proyecto que se vive subjetivamente", usa "proyecto" en un sentido fuerte: antes de cualquier decision consciente y deliberada, el hombre se arroja hacia un futuro, se proyecta. No es una cosa fija —como una piedra, un musgo o una coliflor— que primero es lo que es y solo despues, eventualmente, actua. Es un ser que se lanza hacia adelante y que, existiendo, se va haciendo. Ese proyectarse es previo y mas fundamental que toda voluntad explicita: es el modo de ser mismo del hombre, vivido subjetivamente, es decir, desde adentro, como una existencia que se elige.',
+            'El "querer", en cambio, es la decision consciente, voluntaria y particular que viene DESPUES y que por lo general ya se apoya en un proyecto anterior. Cuando quiero afiliarme a un partido, escribir un libro o casarme, esa voluntad concreta es posterior a una eleccion mas originaria de mi mismo. Por eso Sartre advierte que no hay que confundir el proyecto con el querer: reducir al hombre a sus decisiones deliberadas seria perder de vista que esas decisiones presuponen una autoeleccion mas honda, la del proyecto fundamental que cada uno es.',
+            'Esta distincion es clave para entender que "el hombre no es otra cosa que lo que el se hace". Como no hay una esencia ni una naturaleza humana previa (la existencia precede a la esencia), el hombre no es un conjunto de propiedades dadas de antemano; pero tampoco es meramente lo que conscientemente desea o suena ser. Es lo que efectivamente hace de si al existir, a traves de su proyecto realizado en actos.',
+            'De ahi que no valga escudarse en las buenas intenciones o en lo que "se hubiera querido ser": no soy el genio que no llegue a plasmar en ninguna obra ni el amigo que quise ser sin actos que lo sostengan. El hombre se define por el conjunto de sus actos, por su lanzarse hacia el futuro y no por una interioridad separada de lo que hace. El proyecto que se vive subjetivamente se objetiva en conductas, y son esas conductas —no una esencia ni un mero querer— las que dicen lo que el hombre es.',
+          ].join('\n\n'),
+          references: [
+            {
+              source: 'docente',
+              document: 'Jean-Paul Sartre — El existencialismo es un humanismo (pp. 21-40)',
+              path: '/content/parciales/segundo_parcial/contenido/el_existencialismo_es_un_humanismo_sartre.pdf',
+            },
+            {
+              source: 'generado',
+              document: 'La Caida de los Absolutos',
+              path: '/content/parciales/segundo_parcial/material_generado/la_caida_de_los_absolutos.pdf',
+            },
+          ],
+        },
+        {
+          number: 6,
+          question:
+            'Sartre responde a los reproches que distintos sectores (por ejemplo, comunistas y catolicos) dirigen al existencialismo. Presente al menos dos de esas criticas y explique como las responde el filosofo frances, mostrando por que considera que el existencialismo no es ni una filosofia contemplativa ni una negacion de la solidaridad humana.',
+          inScope: true,
+          answer: [
+            'Sartre abre El existencialismo es un humanismo defendiendose de criticas que le llegan de dos frentes. Los comunistas (marxistas) le reprochan quietismo: si el existencialismo dice que no hay soluciones garantizadas de antemano, la accion no tendria sentido; seria una filosofia contemplativa y burguesa que invita a cruzarse de brazos y a la pura introspeccion. Los catolicos (cristianos), por su parte, le reprochan que, sin Dios ni valores eternos, no habria manera de condenar nada: cada uno podria hacer cualquier cosa, se caeria en el caos moral y en un individualismo que niega toda solidaridad.',
+            'A la acusacion de quietismo, Sartre responde que el existencialismo es exactamente lo contrario de una filosofia contemplativa. Precisamente porque no hay esencia previa ni destino escrito, el hombre no es nada antes de actuar: se hace unicamente mediante sus actos, "no hay realidad sino en la accion". No existe el genio que no se realizo en ninguna obra: uno es el conjunto de sus conductas. La angustia y el desamparo no paralizan, sino que forman parte de la accion responsable, como en el ejemplo del jefe militar que debe decidir y comprometer vidas justamente porque conoce las consecuencias. Lejos de invitar a la resignacion, el existencialismo obliga a comprometerse: es un optimismo exigente, no un pesimismo pasivo.',
+            'A la acusacion de caos moral e insolidaridad, Sartre responde que al elegirse cada hombre elige una imagen del hombre, de modo que toda eleccion compromete a la humanidad entera ("al elegirme, elijo al hombre"). Esto no disuelve la moral, sino que instituye una responsabilidad que no es solo individual sino universal: soy responsable de mi y, a la vez, de todos. Eso es una forma de solidaridad, no su negacion.',
+            'Ademas, la subjetividad de la que parte el existencialismo no es el capricho individual encerrado en si mismo. Al descubrir el cogito, el hombre se descubre tambien frente a los demas: los otros son la condicion de mi propia existencia y del conocimiento que tengo de mi (intersubjetividad). Por eso el existencialismo no es individualismo insolidario ni filosofia de salon, sino una etica de la libertad, la accion y la responsabilidad compartida: una filosofia que hace posible la vida humana en lugar de negarla.',
+          ].join('\n\n'),
+          references: [
+            {
+              source: 'docente',
+              document: 'Jean-Paul Sartre — El existencialismo es un humanismo (pp. 21-40)',
+              path: '/content/parciales/segundo_parcial/contenido/el_existencialismo_es_un_humanismo_sartre.pdf',
+            },
+            {
+              source: 'generado',
+              document: 'La Caida de los Absolutos',
+              path: '/content/parciales/segundo_parcial/material_generado/la_caida_de_los_absolutos.pdf',
+            },
+          ],
+        },
+        {
+          number: 7,
+          question:
+            'Frente a la pregunta "que es una mujer?", De Beauvoir discute la posicion nominalista que reduce la palabra "mujer" a una atribucion arbitraria. Explique en que consiste esa posicion y por que la autora considera que negar la feminidad de este modo es "una huida engañosa" antes que una liberacion.',
+          inScope: true,
+          answer: [
+            'La posicion nominalista que discute Beauvoir sostiene que "mujer" es apenas una palabra, una etiqueta arbitraria sin referente real: solo existirian individuos, seres humanos, y "la mujer" no designaria ninguna realidad, seria una atribucion convencional. En su version igualitaria, esta postura afirma que en el fondo todos somos simplemente seres humanos y que insistir en la categoria "mujeres" seria sostener una diferencia artificial que conviene disolver.',
+            'Beauvoir rechaza esta salida porque, aunque parece igualitaria y universal, tapa las diferencias concretas de situacion. La diferencia sexual existe socialmente: se nota en el cuerpo, la ropa, los gestos, las ocupaciones, las expectativas y las oportunidades. Basta mirar alrededor para constatar que la humanidad se reparte en dos categorias y que las mujeres ocupan una posicion distinta y subordinada. Negar la palabra no borra esa realidad; solo la vuelve invisible.',
+            'Por eso decir "yo no soy una mujer, soy simplemente un ser humano" es, para Beauvoir, "una huida engañosa" y no una liberacion. Una mujer no puede, de buena fe, situarse "mas alla de su sexo": pretender hacerlo equivale a desentenderse de su situacion real en lugar de transformarla. Rechazar la feminidad como mera palabra es evadir el problema, no resolverlo, porque se abandona el terreno concreto donde la opresion efectivamente opera y se finge una neutralidad imposible.',
+            'La verdadera liberacion, en cambio, no pasa por negar que se es mujer, sino por partir de esa situacion para poder cambiarla. De este modo Beauvoir rechaza los dos extremos: el esencialismo del "eterno femenino" (que fija una supuesta naturaleza femenina eterna) y el nominalismo o universalismo abstracto (que niega que las mujeres existan como grupo situado). Entre ambos, sostiene que la clave no es una esencia ni una palabra, sino la situacion historica y social desde la cual hay que plantear el problema.',
+          ].join('\n\n'),
+          references: [
+            {
+              source: 'docente',
+              document: 'Simone de Beauvoir — El segundo sexo, Introduccion (pp. 47-64)',
+              path: '/content/parciales/segundo_parcial/contenido/el_segundo_sexo.pdf',
+            },
+            {
+              source: 'generado',
+              document: 'La Caida de los Absolutos',
+              path: '/content/parciales/segundo_parcial/material_generado/la_caida_de_los_absolutos.pdf',
+            },
+          ],
+        },
+        {
+          number: 8,
+          question:
+            'Por que, segun De Beauvoir, la reciprocidad que normalmente surge entre grupos que se oponen (como entre aldeas, clases o naciones) no se ha dado entre los sexos? Explique que rol juega en esto la ausencia de un "antes" comun a las mujeres como grupo.',
+          inScope: true,
+          answer: [
+            'Beauvoir observa que cuando dos grupos se enfrentan —aldeas, clases, naciones, nativos y extranjeros— la alteridad tiende a ser reciproca: cada uno es "el Otro" para el otro. Esa relacion puede invertirse, equilibrarse o dar lugar a un "nosotros" que se rebela, porque el conflicto reconoce, en el fondo, a dos sujetos que se disputan y se limitan mutuamente.',
+            'Entre varones y mujeres esa reciprocidad no se produjo. El varon se afirmo como Sujeto, Absoluto y Esencial, y la mujer quedo fijada como lo Otro absoluto, lo inesencial, sin lograr afirmarse a su vez como sujeto frente a el. La relacion quedo congelada y unilateral: hay un termino que se pone como lo Uno y otro que es definido, sin reciprocidad, como Alteridad.',
+            'El rol decisivo en esto lo juega la ausencia de un "antes" comun a las mujeres como grupo. Los otros grupos oprimidos tienen o tuvieron una unidad previa: un pasado, un acontecimiento historico, un territorio, una lengua, una religion o una solidaridad de clase que los constituye como comunidad y a la que pueden remontarse para decir "nosotros". Las mujeres carecen de ese "antes": no formaron nunca una colectividad autonoma con una historia propia anterior a su subordinacion. No hubo un momento en que existieran como grupo aparte y luego fueran sometidas; estuvieron desde siempre dispersas entre los varones, integradas en las familias y clases de ellos.',
+            'A esa falta de pasado comun se suma que los vinculos concretos atan a cada mujer mas a los varones de su propio grupo que a las demas mujeres: una mujer burguesa esta mas ligada a su marido burgues que a una mujer proletaria; una mujer blanca, mas a los varones blancos que a las mujeres negras. Sin un "antes" compartido, sin territorio, historia ni solidaridad de grupo, no hay base para constituirse como un "nosotras" capaz de plantear el conflicto y exigir reciprocidad. Por eso, a diferencia de proletarios o colonizados, las mujeres no pudieron enfrentarse al varon como un sujeto colectivo frente a otro: les falto justamente ese "antes" que funda a un grupo como sujeto de su propia historia.',
+          ].join('\n\n'),
+          references: [
+            {
+              source: 'docente',
+              document: 'Simone de Beauvoir — El segundo sexo, Introduccion (pp. 47-64)',
+              path: '/content/parciales/segundo_parcial/contenido/el_segundo_sexo.pdf',
+            },
+            {
+              source: 'generado',
+              document: 'La Caida de los Absolutos',
+              path: '/content/parciales/segundo_parcial/material_generado/la_caida_de_los_absolutos.pdf',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 'segundo-parcial-simulacro',
+    number: 'Segundo parcial · Simulacro',
+    title: 'Simulacro del segundo parcial — Introduccion a la Filosofia',
+    subtitle: 'CBC | UBA · Ciudad Universitaria',
+    description:
+      'Simulacro de practica entregado por el docente para preparar el segundo parcial: textos provistos (Hegel y Nietzsche en Relecturas, Sartre y Beauvoir en sus obras), materiales generados a partir de ellos y las 8 preguntas del simulacro resueltas estrictamente a partir de ese material.',
     topics: [
       { author: 'Hegel', detail: 'Fenomenologia del Espiritu — saber y ser, conciencia, experiencia, saber absoluto' },
       { author: 'Friedrich Nietzsche', detail: 'Sobre verdad y mentira en sentido extramoral + Como el "mundo verdadero" acabo convirtiendose en una fabula' },
